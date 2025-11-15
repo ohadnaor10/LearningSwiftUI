@@ -1,67 +1,78 @@
-//
-//  CalendarView.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 13/11/2025.
-//
-
 import SwiftUI
 
 struct CalendarView: View {
     @Binding var currentMonth: Month
-    @State private var page: Int = 0            // -1, 0, +1 window
-
-    private var window: [Int] { [-1, 0, 1] }    // three pages only
+    @State private var dragOffset: CGFloat = 0
+    @State private var baseOffset: CGFloat = 0
+    @State private var containerWidth: CGFloat = 0
 
     var body: some View {
-        TabView(selection: $page) {
-            ForEach(window, id: \.self) { offset in
-                GeometryReader { geo in
-                    let w = geo.size.width
-                    let h = geo.size.height
-                    let r: CGFloat = 0.15
-                    let mainRow = h / (6 + r)
-                    let firstRow = r * mainRow
-                    let colW = w / 7
+        GeometryReader { geo in
+            let width = geo.size.width
+            let height = geo.size.height
+            let threshold = width * 0.33
 
-                    // draw the grid for currentMonth.advanced(by: offset)
-                    Canvas { context, size in
-                        var path = Path()
-                        // verticals, start halfway down first row
-                        for col in 1..<7 {
-                            let x = colW * CGFloat(col)
-                            path.move(to: CGPoint(x: x, y: firstRow / 2))
-                            path.addLine(to: CGPoint(x: x, y: size.height))
-                        }
-                        // horizontals between rows, no outer strokes
-                        var y = firstRow
-                        for _ in 1..<7 {
-                            path.move(to: CGPoint(x: 0, y: y))
-                            path.addLine(to: CGPoint(x: size.width, y: y))
-                            y += mainRow
-                        }
-                        context.stroke(path, with: .color(.black), lineWidth: 1)
+            // update baseOffset when width changes
+            Color.clear
+                .onAppear {
+                    containerWidth = width
+                    baseOffset = -width
+                    dragOffset = baseOffset
+                }
+                .onChange(of: width) { w in
+                    containerWidth = w
+                    baseOffset = -w
+                    dragOffset = baseOffset
+                }
+
+            HStack(spacing: 0) {
+                // previous, current, next months
+                ForEach([-1, 0, 1], id: \.self) { offset in
+                    let m = currentMonth.advanced(by: offset)
+                    MonthGridView(month: m)
+                        .frame(width: containerWidth)
+                }
+            }
+            .offset(x: dragOffset)
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        dragOffset = baseOffset + value.translation.width
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-                .tag(offset)
-            }
+                    .onEnded { value in
+                        let t = value.translation.width
+                        if t <= -threshold {
+                            // swipe left → next month
+                            withAnimation(.easeOut(duration: 0.25)) {
+                                dragOffset = -2 * containerWidth
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                currentMonth = currentMonth.next()
+                                withAnimation(.none) {
+                                    baseOffset = -containerWidth
+                                    dragOffset = baseOffset
+                                }
+                            }
+                        } else if t >= threshold {
+                            // swipe right → previous month
+                            withAnimation(.easeOut(duration: 0.25)) {
+                                dragOffset = 0
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                currentMonth = currentMonth.previous()
+                                withAnimation(.none) {
+                                    baseOffset = -containerWidth
+                                    dragOffset = baseOffset
+                                }
+                            }
+                        } else {
+                            // not enough swipe, snap back
+                            withAnimation(.easeOut) { dragOffset = baseOffset }
+                        }
+                    }
+            ) 
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .onChange(of: page) { newValue in
-            if newValue == 1 {
-                currentMonth = currentMonth.next()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    page = 0
-                }
-            } else if newValue == -1 {
-                currentMonth = currentMonth.previous()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    page = 0
-                }
-            }
-        }
-
-        .animation(.easeInOut, value: page)
     }
 }
+
+

@@ -8,17 +8,35 @@ import SwiftUI
 
 struct AppShell: View {
     @State private var current = Month.current
+    @State private var currentTab = 0
 
     var body: some View {
         VStack(spacing: 0) {
-            TopBar(month: current)
+            if currentTab == 0 {
+                TopBar(month: current, isCurrentMonth: current == .current)
+            } else {
+                TopBarGeneric(title: "Page 2")
+            }
 
-            CalendarView(currentMonth: $current)   // updates on swipe
 
-            BottomBar(currentPage: .constant(0)) // unchanged for now
+
+            Group {
+                switch currentTab {
+                case 0:
+                    CalendarView(currentMonth: $current)
+                case 1:
+                    Page2()
+                default:
+                    CalendarView(currentMonth: $current)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            BottomBar(currentPage: $currentTab)
         }
     }
 }
+
 
 
 #Preview {

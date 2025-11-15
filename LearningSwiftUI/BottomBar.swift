@@ -33,6 +33,3 @@ struct BottomBar: View {
     }
 }
 
-#Preview {
-    BottomBar(currentPage: .constant(0))
-}

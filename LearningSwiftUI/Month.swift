@@ -45,3 +45,20 @@ struct Month: Hashable, Equatable {
         return df.string(from: Calendar.current.date(from: comps)!)
     }
 }
+
+extension Month {
+    // Sunday = 0 ... Saturday = 6, regardless of device locale
+    var firstWeekdayIndexSunday0: Int {
+        var cal = Calendar(identifier: .gregorian)
+        cal.firstWeekday = 1 // Sunday
+        let d = cal.date(from: DateComponents(year: year, month: month, day: 1))!
+        return cal.component(.weekday, from: d) - 1
+    }
+
+    var numberOfDays: Int {
+        var cal = Calendar(identifier: .gregorian)
+        cal.firstWeekday = 1
+        let d = cal.date(from: DateComponents(year: year, month: month, day: 1))!
+        return cal.range(of: .day, in: .month, for: d)!.count
+    }
+}
