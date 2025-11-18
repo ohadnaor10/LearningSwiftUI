@@ -31,6 +31,19 @@
 		B41F2B082EC8A3DF00F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B41F2B212ECB669800F1D118 /* Stores */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		B41F2B262ECB66A200F1D118 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		B41F2AD12EC5F61A00F1D118 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -62,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				B41F2AF82EC604F500F1D118 /* Assets.xcassets */,
+				B41F2B262ECB66A200F1D118 /* Models */,
+				B41F2B212ECB669800F1D118 /* Stores */,
 				B41F2AF72EC604F500F1D118 /* AppShell.swift */,
 				B41F2AFD2EC604F500F1D118 /* TopBar.swift */,
 				B41F2AF92EC604F500F1D118 /* BottomBar.swift */,
@@ -88,6 +103,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B41F2B262ECB66A200F1D118 /* Models */,
 			);
 			name = LearningSwiftUI;
 			packageProductDependencies = (
