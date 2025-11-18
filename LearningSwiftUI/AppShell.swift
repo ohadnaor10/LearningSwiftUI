@@ -12,20 +12,17 @@ struct AppShell: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            // Top bar only for the calendar page.
             if currentTab == 0 {
                 TopBar(month: current, isCurrentMonth: current == .current)
-            } else {
-                TopBarGeneric(title: "Page 2")
             }
-
-
 
             Group {
                 switch currentTab {
                 case 0:
                     CalendarView(currentMonth: $current)
                 case 1:
-                    Page2()
+                    ReportPage()
                 default:
                     CalendarView(currentMonth: $current)
                 }
@@ -36,8 +33,6 @@ struct AppShell: View {
         }
     }
 }
-
-
 
 #Preview {
     AppShell()

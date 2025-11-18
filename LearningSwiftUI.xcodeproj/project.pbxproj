@@ -12,7 +12,6 @@
 		B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AF92EC604F500F1D118 /* BottomBar.swift */; };
 		B41F2B022EC604F500F1D118 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFA2EC604F500F1D118 /* CalendarView.swift */; };
 		B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFB2EC604F500F1D118 /* LearningSwiftUIApp.swift */; };
-		B41F2B042EC604F500F1D118 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFC2EC604F500F1D118 /* Page2.swift */; };
 		B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFD2EC604F500F1D118 /* TopBar.swift */; };
 		B41F2B072EC632DA00F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B062EC632CF00F1D118 /* Month.swift */; };
 		B41F2B092EC8A3E100F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B082EC8A3DF00F1D118 /* MonthGridView.swift */; };
@@ -25,7 +24,6 @@
 		B41F2AF92EC604F500F1D118 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		B41F2AFA2EC604F500F1D118 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B41F2AFB2EC604F500F1D118 /* LearningSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSwiftUIApp.swift; sourceTree = "<group>"; };
-		B41F2AFC2EC604F500F1D118 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		B41F2AFD2EC604F500F1D118 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		B41F2B062EC632CF00F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B082EC8A3DF00F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
@@ -40,6 +38,11 @@
 		B41F2B262ECB66A200F1D118 /* Models */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B41F2B2F2ECCF05000F1D118 /* Reports */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Reports;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,15 +78,15 @@
 			isa = PBXGroup;
 			children = (
 				B41F2AF82EC604F500F1D118 /* Assets.xcassets */,
+				B41F2AF72EC604F500F1D118 /* AppShell.swift */,
 				B41F2B262ECB66A200F1D118 /* Models */,
 				B41F2B212ECB669800F1D118 /* Stores */,
-				B41F2AF72EC604F500F1D118 /* AppShell.swift */,
+				B41F2B2F2ECCF05000F1D118 /* Reports */,
 				B41F2AFD2EC604F500F1D118 /* TopBar.swift */,
 				B41F2AF92EC604F500F1D118 /* BottomBar.swift */,
 				B41F2B062EC632CF00F1D118 /* Month.swift */,
 				B41F2AFA2EC604F500F1D118 /* CalendarView.swift */,
 				B41F2B082EC8A3DF00F1D118 /* MonthGridView.swift */,
-				B41F2AFC2EC604F500F1D118 /* Page2.swift */,
 				B41F2AFB2EC604F500F1D118 /* LearningSwiftUIApp.swift */,
 			);
 			path = LearningSwiftUI;
@@ -106,6 +109,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B41F2B262ECB66A200F1D118 /* Models */,
+				B41F2B2F2ECCF05000F1D118 /* Reports */,
 			);
 			name = LearningSwiftUI;
 			packageProductDependencies = (
@@ -170,7 +174,6 @@
 				B41F2B022EC604F500F1D118 /* CalendarView.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
 				B41F2B092EC8A3E100F1D118 /* MonthGridView.swift in Sources */,
-				B41F2B042EC604F500F1D118 /* Page2.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
