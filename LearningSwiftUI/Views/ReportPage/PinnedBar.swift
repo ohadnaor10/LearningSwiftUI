@@ -1,15 +1,8 @@
-//
-//  PinnedBar.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 18/11/2025.
-//
-
 import SwiftUI
 
 struct PinnedBar: View {
-    let pinnedActivities: [Activity]
-    let onTap: (Activity) -> Void
+    let pinnedActivities: [ActivityType]
+    let onTap: (ActivityType) -> Void
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -40,7 +33,7 @@ struct PinnedBar: View {
 
 #Preview {
     PinnedBar(
-        pinnedActivities: Activity.samplePinned,
+        pinnedActivities: ActivityType.samples,
         onTap: { _ in }
     )
 }

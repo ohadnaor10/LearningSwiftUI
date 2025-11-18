@@ -1,10 +1,3 @@
-//
-//  AddPanelView.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 18/11/2025.
-//
-
 import SwiftUI
 
 struct AddPanelView: View {
@@ -13,7 +6,7 @@ struct AddPanelView: View {
             Text("Add new folder or activity")
                 .font(.headline)
 
-            Text("This is a placeholder. The real creation bar and logic will be defined later.")
+            Text("This is a placeholder. Later you will design the real builder for activity types and flows.")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
@@ -24,3 +17,6 @@ struct AddPanelView: View {
     }
 }
 
+#Preview {
+    AddPanelView()
+}

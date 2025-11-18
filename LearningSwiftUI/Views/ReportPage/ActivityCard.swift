@@ -1,21 +1,37 @@
-//
-//  ActivityCard.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 18/11/2025.
-//
-
 import SwiftUI
 
+// UI level tree: folders and activities
+
+struct ActivityFolder: Identifiable, Hashable {
+    let id = UUID()
+    let name: String
+    var items: [ActivityNode]
+}
+
+indirect enum ActivityNode: Identifiable, Hashable {
+    case folder(ActivityFolder)
+    case activity(ActivityType)
+
+    var id: UUID {
+        switch self {
+        case .folder(let f): return f.id
+        case .activity(let a): return a.id
+        }
+    }
+}
+
+// Card view
+
 struct ActivityCard: View {
-    let item: ActivityItem
+    let node: ActivityNode
     let onOpenFolder: (ActivityFolder) -> Void
-    let onSelectActivity: (Activity) -> Void
+    let onSelectActivity: (ActivityType) -> Void
 
     var body: some View {
-        switch item {
+        switch node {
         case .folder(let folder):
             folderCard(folder)
+
         case .activity(let activity):
             activityRow(activity)
         }
@@ -35,6 +51,7 @@ struct ActivityCard: View {
                         .foregroundColor(.secondary)
                 }
 
+                // Preview of content
                 VStack(alignment: .leading, spacing: 4) {
                     let preview = folder.items.prefix(3)
                     ForEach(Array(preview)) { child in
@@ -69,7 +86,7 @@ struct ActivityCard: View {
         .buttonStyle(.plain)
     }
 
-    private func activityRow(_ activity: Activity) -> some View {
+    private func activityRow(_ activity: ActivityType) -> some View {
         Button {
             onSelectActivity(activity)
         } label: {
@@ -90,3 +107,11 @@ struct ActivityCard: View {
         .buttonStyle(.plain)
     }
 }
+
+//#Preview {
+//    ActivityCard(
+//        node: .activity(.drinkWater),
+//        onOpenFolder: { _ in },
+//        onSelectActivity: { _ in }
+//    )
+//}

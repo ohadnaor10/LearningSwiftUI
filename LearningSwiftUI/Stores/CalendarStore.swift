@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
 final class CalendarStore: ObservableObject {
     @Published private(set) var days: [DayKey: DayData] = [:]
 }
+
