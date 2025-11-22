@@ -12,13 +12,6 @@
 		B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AF92EC604F500F1D118 /* BottomBar.swift */; };
 		B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFB2EC604F500F1D118 /* LearningSwiftUIApp.swift */; };
 		B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2AFD2EC604F500F1D118 /* TopBar.swift */; };
-		B41F2B722ECD096800F1D118 /* ActivityInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B622ECD096800F1D118 /* ActivityInstance.swift */; };
-		B41F2B732ECD096800F1D118 /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B632ECD096800F1D118 /* ActivityType.swift */; };
-		B41F2B742ECD096800F1D118 /* AttributeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B642ECD096800F1D118 /* AttributeDefinition.swift */; };
-		B41F2B752ECD096800F1D118 /* AttributeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B652ECD096800F1D118 /* AttributeValue.swift */; };
-		B41F2B762ECD096800F1D118 /* FlowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B662ECD096800F1D118 /* FlowNode.swift */; };
-		B41F2B772ECD096800F1D118 /* FlowQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B672ECD096800F1D118 /* FlowQuestion.swift */; };
-		B41F2B782ECD096800F1D118 /* FlowRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B682ECD096800F1D118 /* FlowRouting.swift */; };
 		B41F2B792ECD096800F1D118 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6A2ECD096800F1D118 /* DayData.swift */; };
 		B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6B2ECD096800F1D118 /* DayKey.swift */; };
 		B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6C2ECD096800F1D118 /* Event.swift */; };
@@ -32,11 +25,9 @@
 		B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8A2ECD097300F1D118 /* CalendarView.swift */; };
 		B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8B2ECD097300F1D118 /* Month.swift */; };
 		B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */; };
-		B41F2B962ECD0A3300F1D118 /* FlowRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B952ECD0A2B00F1D118 /* FlowRunner.swift */; };
-		B41F2B982ECD0A3F00F1D118 /* FlowPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B972ECD0A3800F1D118 /* FlowPageRenderer.swift */; };
-		B41F2B9A2ECD0A4F00F1D118 /* FlowAnswerCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B992ECD0A4500F1D118 /* FlowAnswerCollector.swift */; };
-		B41F2B9C2ECD0E0200F1D118 /* AttributeKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B9B2ECD0E0000F1D118 /* AttributeKind.swift */; };
-		B41F2B9E2ECD0EA300F1D118 /* FlowValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B9D2ECD0EA100F1D118 /* FlowValidationError.swift */; };
+		B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B812ED1EB2100393766 /* Activity.swift */; };
+		B4C13B842ED1EB3C00393766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B832ED1EB3700393766 /* Category.swift */; };
+		B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B852ED1EB3F00393766 /* CategoryType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,13 +37,6 @@
 		B41F2AF92EC604F500F1D118 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		B41F2AFB2EC604F500F1D118 /* LearningSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSwiftUIApp.swift; sourceTree = "<group>"; };
 		B41F2AFD2EC604F500F1D118 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
-		B41F2B622ECD096800F1D118 /* ActivityInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstance.swift; sourceTree = "<group>"; };
-		B41F2B632ECD096800F1D118 /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
-		B41F2B642ECD096800F1D118 /* AttributeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDefinition.swift; sourceTree = "<group>"; };
-		B41F2B652ECD096800F1D118 /* AttributeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeValue.swift; sourceTree = "<group>"; };
-		B41F2B662ECD096800F1D118 /* FlowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowNode.swift; sourceTree = "<group>"; };
-		B41F2B672ECD096800F1D118 /* FlowQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowQuestion.swift; sourceTree = "<group>"; };
-		B41F2B682ECD096800F1D118 /* FlowRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRouting.swift; sourceTree = "<group>"; };
 		B41F2B6A2ECD096800F1D118 /* DayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayData.swift; sourceTree = "<group>"; };
 		B41F2B6B2ECD096800F1D118 /* DayKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayKey.swift; sourceTree = "<group>"; };
 		B41F2B6C2ECD096800F1D118 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -67,13 +51,11 @@
 		B41F2B8B2ECD097300F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
 		B41F2B912ECD097300F1D118 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
-		B41F2B952ECD0A2B00F1D118 /* FlowRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRunner.swift; sourceTree = "<group>"; };
-		B41F2B972ECD0A3800F1D118 /* FlowPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowPageRenderer.swift; sourceTree = "<group>"; };
-		B41F2B992ECD0A4500F1D118 /* FlowAnswerCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowAnswerCollector.swift; sourceTree = "<group>"; };
-		B41F2B9B2ECD0E0000F1D118 /* AttributeKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeKind.swift; sourceTree = "<group>"; };
-		B41F2B9D2ECD0EA100F1D118 /* FlowValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowValidationError.swift; sourceTree = "<group>"; };
 		B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
 		B41F2BA12ECD176000F1D118 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
+		B4C13B812ED1EB2100393766 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		B4C13B832ED1EB3700393766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B4C13B852ED1EB3F00393766 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +103,9 @@
 		B41F2B692ECD096800F1D118 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2B9B2ECD0E0000F1D118 /* AttributeKind.swift */,
-				B41F2B622ECD096800F1D118 /* ActivityInstance.swift */,
-				B41F2B632ECD096800F1D118 /* ActivityType.swift */,
-				B41F2B642ECD096800F1D118 /* AttributeDefinition.swift */,
-				B41F2B652ECD096800F1D118 /* AttributeValue.swift */,
-				B41F2B662ECD096800F1D118 /* FlowNode.swift */,
-				B41F2B672ECD096800F1D118 /* FlowQuestion.swift */,
-				B41F2B682ECD096800F1D118 /* FlowRouting.swift */,
+				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
+				B4C13B832ED1EB3700393766 /* Category.swift */,
+				B4C13B812ED1EB2100393766 /* Activity.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -191,20 +168,8 @@
 			children = (
 				B41F2B842ECD097300F1D118 /* ReportPage */,
 				B41F2B8D2ECD097300F1D118 /* Calendar */,
-				B41F2B942ECD0A1300F1D118 /* ReportFlowEngine */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B41F2B942ECD0A1300F1D118 /* ReportFlowEngine */ = {
-			isa = PBXGroup;
-			children = (
-				B41F2B9D2ECD0EA100F1D118 /* FlowValidationError.swift */,
-				B41F2B952ECD0A2B00F1D118 /* FlowRunner.swift */,
-				B41F2B972ECD0A3800F1D118 /* FlowPageRenderer.swift */,
-				B41F2B992ECD0A4500F1D118 /* FlowAnswerCollector.swift */,
-			);
-			path = ReportFlowEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,33 +245,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				B41F2B002EC604F500F1D118 /* AppShell.swift in Sources */,
-				B41F2B9E2ECD0EA300F1D118 /* FlowValidationError.swift in Sources */,
 				B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */,
+				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
-				B41F2B722ECD096800F1D118 /* ActivityInstance.swift in Sources */,
-				B41F2B732ECD096800F1D118 /* ActivityType.swift in Sources */,
-				B41F2B742ECD096800F1D118 /* AttributeDefinition.swift in Sources */,
-				B41F2B752ECD096800F1D118 /* AttributeValue.swift in Sources */,
-				B41F2B9A2ECD0A4F00F1D118 /* FlowAnswerCollector.swift in Sources */,
-				B41F2B962ECD0A3300F1D118 /* FlowRunner.swift in Sources */,
-				B41F2B762ECD096800F1D118 /* FlowNode.swift in Sources */,
-				B41F2B772ECD096800F1D118 /* FlowQuestion.swift in Sources */,
-				B41F2B782ECD096800F1D118 /* FlowRouting.swift in Sources */,
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */,
 				B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */,
+				B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */,
 				B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */,
 				B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */,
 				B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */,
 				B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */,
 				B41F2B862ECD097300F1D118 /* AddPanelView.swift in Sources */,
-				B41F2B982ECD0A3F00F1D118 /* FlowPageRenderer.swift in Sources */,
+				B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */,
 				B41F2B872ECD097300F1D118 /* PinnedBar.swift in Sources */,
 				B41F2B882ECD097300F1D118 /* ReportPage.swift in Sources */,
 				B41F2B892ECD097300F1D118 /* ReportProtocolView.swift in Sources */,
 				B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
-				B41F2B9C2ECD0E0200F1D118 /* AttributeKind.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
