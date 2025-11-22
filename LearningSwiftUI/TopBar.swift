@@ -35,3 +35,31 @@ struct TopBarGeneric: View {
         .frame(height: 60)
     }
 }
+
+
+struct TopBarGenericReportPage: View {
+    var title: String
+    var showAddButton: Bool = false
+    var onAddTapped: () -> Void = {}
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.headline)
+                .padding(.leading, 12)
+
+            Spacer()
+
+            if showAddButton {
+                Button(action: onAddTapped) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 20, weight: .bold))
+                }
+                .padding(.trailing, 12)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 10)
+        .background(Color.gray.opacity(0.15))
+    }
+}

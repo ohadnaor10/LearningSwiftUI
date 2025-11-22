@@ -13,7 +13,7 @@ struct BottomBar: View {
     var body: some View {
         HStack {
             barItem("Calendar", index: 0)
-            barItem("Page 2", index: 1)
+            barItem("Report", index: 1)
         }
         .frame(height: 60)
         .background(Color.gray.opacity(0.1))

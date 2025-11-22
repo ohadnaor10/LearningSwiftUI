@@ -18,16 +18,16 @@
 		B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6D2ECD096800F1D118 /* Habit.swift */; };
 		B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6E2ECD096800F1D118 /* Task.swift */; };
 		B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */; };
-		B41F2B862ECD097300F1D118 /* AddPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B802ECD097300F1D118 /* AddPanelView.swift */; };
-		B41F2B872ECD097300F1D118 /* PinnedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B812ECD097300F1D118 /* PinnedBar.swift */; };
 		B41F2B882ECD097300F1D118 /* ReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B822ECD097300F1D118 /* ReportPage.swift */; };
-		B41F2B892ECD097300F1D118 /* ReportProtocolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B832ECD097300F1D118 /* ReportProtocolView.swift */; };
 		B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8A2ECD097300F1D118 /* CalendarView.swift */; };
 		B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8B2ECD097300F1D118 /* Month.swift */; };
 		B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */; };
 		B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B812ED1EB2100393766 /* Activity.swift */; };
 		B4C13B842ED1EB3C00393766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B832ED1EB3700393766 /* Category.swift */; };
 		B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B852ED1EB3F00393766 /* CategoryType.swift */; };
+		B4C13B8E2ED2071600393766 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8D2ED2071200393766 /* Group.swift */; };
+		B4C13B902ED2077300393766 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8F2ED2077300393766 /* GroupCard.swift */; };
+		B4C13B922ED207B900393766 /* ContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B912ED207B900393766 /* ContentPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +43,7 @@
 		B41F2B6D2ECD096800F1D118 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		B41F2B6E2ECD096800F1D118 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
-		B41F2B802ECD097300F1D118 /* AddPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPanelView.swift; sourceTree = "<group>"; };
-		B41F2B812ECD097300F1D118 /* PinnedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedBar.swift; sourceTree = "<group>"; };
 		B41F2B822ECD097300F1D118 /* ReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPage.swift; sourceTree = "<group>"; };
-		B41F2B832ECD097300F1D118 /* ReportProtocolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocolView.swift; sourceTree = "<group>"; };
 		B41F2B8A2ECD097300F1D118 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B41F2B8B2ECD097300F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
@@ -56,6 +53,9 @@
 		B4C13B812ED1EB2100393766 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B4C13B832ED1EB3700393766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B4C13B852ED1EB3F00393766 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		B4C13B8D2ED2071200393766 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B4C13B8F2ED2077300393766 /* GroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCard.swift; sourceTree = "<group>"; };
+		B4C13B912ED207B900393766 /* ContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +125,7 @@
 		B41F2B712ECD096800F1D118 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B4C13B8C2ED2070800393766 /* Groups */,
 				B41F2B692ECD096800F1D118 /* Activities */,
 				B41F2B6F2ECD096800F1D118 /* Day */,
 			);
@@ -135,10 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
-				B41F2B802ECD097300F1D118 /* AddPanelView.swift */,
-				B41F2B812ECD097300F1D118 /* PinnedBar.swift */,
 				B41F2B822ECD097300F1D118 /* ReportPage.swift */,
-				B41F2B832ECD097300F1D118 /* ReportProtocolView.swift */,
+				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
+				B4C13B912ED207B900393766 /* ContentPage.swift */,
 			);
 			path = ReportPage;
 			sourceTree = "<group>";
@@ -170,6 +170,14 @@
 				B41F2B8D2ECD097300F1D118 /* Calendar */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B4C13B8C2ED2070800393766 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				B4C13B8D2ED2071200393766 /* Group.swift */,
+			);
+			path = Groups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C13B922ED207B900393766 /* ContentPage.swift in Sources */,
+				B4C13B8E2ED2071600393766 /* Group.swift in Sources */,
 				B41F2B002EC604F500F1D118 /* AppShell.swift in Sources */,
 				B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */,
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
@@ -251,16 +261,14 @@
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */,
 				B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */,
+				B4C13B902ED2077300393766 /* GroupCard.swift in Sources */,
 				B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */,
 				B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */,
 				B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */,
 				B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */,
 				B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */,
-				B41F2B862ECD097300F1D118 /* AddPanelView.swift in Sources */,
 				B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */,
-				B41F2B872ECD097300F1D118 /* PinnedBar.swift in Sources */,
 				B41F2B882ECD097300F1D118 /* ReportPage.swift in Sources */,
-				B41F2B892ECD097300F1D118 /* ReportProtocolView.swift in Sources */,
 				B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
