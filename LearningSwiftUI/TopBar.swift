@@ -37,6 +37,8 @@ struct TopBarGeneric: View {
 }
 
 
+import SwiftUI
+
 struct TopBarGenericReportPage: View {
     var title: String
     var showAddButton: Bool = false
