@@ -24,7 +24,6 @@
 		B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6C2ECD096800F1D118 /* Event.swift */; };
 		B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6D2ECD096800F1D118 /* Habit.swift */; };
 		B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B6E2ECD096800F1D118 /* Task.swift */; };
-		B41F2B7E2ECD096800F1D118 /* ActivityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B702ECD096800F1D118 /* ActivityModels.swift */; };
 		B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */; };
 		B41F2B862ECD097300F1D118 /* AddPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B802ECD097300F1D118 /* AddPanelView.swift */; };
 		B41F2B872ECD097300F1D118 /* PinnedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B812ECD097300F1D118 /* PinnedBar.swift */; };
@@ -59,7 +58,6 @@
 		B41F2B6C2ECD096800F1D118 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B41F2B6D2ECD096800F1D118 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		B41F2B6E2ECD096800F1D118 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		B41F2B702ECD096800F1D118 /* ActivityModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModels.swift; sourceTree = "<group>"; };
 		B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		B41F2B802ECD097300F1D118 /* AddPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPanelView.swift; sourceTree = "<group>"; };
 		B41F2B812ECD097300F1D118 /* PinnedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedBar.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			children = (
 				B41F2B692ECD096800F1D118 /* Activities */,
 				B41F2B6F2ECD096800F1D118 /* Day */,
-				B41F2B702ECD096800F1D118 /* ActivityModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				B41F2B892ECD097300F1D118 /* ReportProtocolView.swift in Sources */,
 				B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
-				B41F2B7E2ECD096800F1D118 /* ActivityModels.swift in Sources */,
 				B41F2B9C2ECD0E0200F1D118 /* AttributeKind.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
 			);
