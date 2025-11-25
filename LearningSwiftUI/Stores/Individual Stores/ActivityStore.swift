@@ -60,7 +60,6 @@ final class ActivityStore: ObservableObject {
     func addActivity(_ activity: ActivityType, to folder: ActivityFolder) {
         // TODO: implement mutation logic when you define how editing works.
     }
-
     /// Add a new folder somewhere in the tree (to be implemented later).
     func addFolder(named name: String, to folder: ActivityFolder) {
         // TODO: implement mutation logic when you define how editing works.

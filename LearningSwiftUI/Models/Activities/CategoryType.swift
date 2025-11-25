@@ -35,7 +35,7 @@ struct Choice: Identifiable, Hashable {
     let id: UUID = UUID()
     var name: String
     var isOn: Bool
-    var subcategories: [Category]   // children nodes
+    var next: Category?   // children nodes
 }
 
 // MARK: - Number Inputs

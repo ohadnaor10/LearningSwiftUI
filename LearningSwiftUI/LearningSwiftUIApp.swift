@@ -12,6 +12,7 @@ struct LearningSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             AppShell()
+                .environmentObject(GroupsStore())
         }
     }
 }
