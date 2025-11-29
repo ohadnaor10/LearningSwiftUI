@@ -30,6 +30,7 @@
 		B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */; };
 		B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783442EDB169500B289A7 /* AddCategoryPage.swift */; };
 		B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783462EDB230D00B289A7 /* CategoryView.swift */; };
+		B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783482EDB25F400B289A7 /* AddActivityButtons.swift */; };
 		B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B812ED1EB2100393766 /* Activity.swift */; };
 		B4C13B842ED1EB3C00393766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B832ED1EB3700393766 /* Category.swift */; };
 		B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B852ED1EB3F00393766 /* CategoryType.swift */; };
@@ -66,6 +67,7 @@
 		B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityNameStep.swift; sourceTree = "<group>"; };
 		B49783442EDB169500B289A7 /* AddCategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryPage.swift; sourceTree = "<group>"; };
 		B49783462EDB230D00B289A7 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		B49783482EDB25F400B289A7 /* AddActivityButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityButtons.swift; sourceTree = "<group>"; };
 		B4C13B812ED1EB2100393766 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B4C13B832ED1EB3700393766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B4C13B852ED1EB3F00393766 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				B49783442EDB169500B289A7 /* AddCategoryPage.swift */,
 				B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */,
 				B49783462EDB230D00B289A7 /* CategoryView.swift */,
+				B49783482EDB25F400B289A7 /* AddActivityButtons.swift */,
 			);
 			path = "Add Activity";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */,
 				B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
+				B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
 				B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */,
 				B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */,
