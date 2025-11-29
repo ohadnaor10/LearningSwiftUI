@@ -4,5 +4,11 @@
 //
 //  Created by Ohad Naor on 25/11/2025.
 //
+import Foundation
 
-// in the future. -------------
+
+final class UserData: ObservableObject {
+    @Published var activities: [Activity] = []
+    @Published var groups: [ActivityGroup] = []
+}
+

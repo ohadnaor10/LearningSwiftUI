@@ -14,11 +14,11 @@ import Foundation
 struct Activity: Identifiable, Hashable {
     let id: UUID
     var name: String
-    var startingCategory: Category
+    var categories: [Category]
 
-    init(id: UUID = UUID(), name: String, startingCategory: Category) {
+    init(id: UUID = UUID(), name: String, categories: [Category]) {
         self.id = id
         self.name = name
-        self.startingCategory = startingCategory
+        self.categories = categories
     }
 }

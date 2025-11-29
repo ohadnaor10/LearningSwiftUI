@@ -27,6 +27,9 @@
 		B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783382ED650E100B289A7 /* AddGroupPage.swift */; };
 		B497833B2ED6525700B289A7 /* GroupsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833A2ED6525700B289A7 /* GroupsStore.swift */; };
 		B497833E2ED6536800B289A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833D2ED6536800B289A7 /* UserData.swift */; };
+		B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */; };
+		B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783442EDB169500B289A7 /* AddCategoryPage.swift */; };
+		B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783462EDB230D00B289A7 /* CategoryView.swift */; };
 		B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B812ED1EB2100393766 /* Activity.swift */; };
 		B4C13B842ED1EB3C00393766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B832ED1EB3700393766 /* Category.swift */; };
 		B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B852ED1EB3F00393766 /* CategoryType.swift */; };
@@ -60,6 +63,9 @@
 		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
 		B497833A2ED6525700B289A7 /* GroupsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsStore.swift; sourceTree = "<group>"; };
 		B497833D2ED6536800B289A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityNameStep.swift; sourceTree = "<group>"; };
+		B49783442EDB169500B289A7 /* AddCategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryPage.swift; sourceTree = "<group>"; };
+		B49783462EDB230D00B289A7 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B4C13B812ED1EB2100393766 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B4C13B832ED1EB3700393766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B4C13B852ED1EB3F00393766 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
@@ -186,7 +192,7 @@
 		B49783332ED6450400B289A7 /* Add Data */ = {
 			isa = PBXGroup;
 			children = (
-				B49783342ED6453B00B289A7 /* AddActivityPage.swift */,
+				B497833F2ED8A5BE00B289A7 /* Add Activity */,
 				B49783382ED650E100B289A7 /* AddGroupPage.swift */,
 			);
 			path = "Add Data";
@@ -201,6 +207,17 @@
 				B497833A2ED6525700B289A7 /* GroupsStore.swift */,
 			);
 			path = "Individual Stores";
+			sourceTree = "<group>";
+		};
+		B497833F2ED8A5BE00B289A7 /* Add Activity */ = {
+			isa = PBXGroup;
+			children = (
+				B49783342ED6453B00B289A7 /* AddActivityPage.swift */,
+				B49783442EDB169500B289A7 /* AddCategoryPage.swift */,
+				B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */,
+				B49783462EDB230D00B289A7 /* CategoryView.swift */,
+			);
+			path = "Add Activity";
 			sourceTree = "<group>";
 		};
 		B4C13B8C2ED2070800393766 /* Groups */ = {
@@ -305,9 +322,12 @@
 				B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */,
 				B41F2B882ECD097300F1D118 /* ReportPage.swift in Sources */,
 				B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */,
+				B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */,
 				B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
+				B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */,
+				B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

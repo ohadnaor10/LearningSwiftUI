@@ -64,24 +64,24 @@ struct GroupCard: View {
         .buttonStyle(.plain)
     }
 }
-
-#Preview {
-    let cat = Category(
-        name: "Main",
-        type: .textInputs(TextInputsData(inputs: []))
-    )
-
-    let a1 = Activity(name: "Water", startingCategory: cat)
-    let a2 = Activity(name: "Workout", startingCategory: cat)
-
-    let subgroup1 = ActivityGroup(name: "Health", subgroups: [], activities: [a1])
-    let subgroup2 = ActivityGroup(name: "Work", subgroups: [], activities: [a2])
-
-    let root = ActivityGroup(
-        name: "Root Group",
-        subgroups: [subgroup1, subgroup2],
-        activities: [a1, a2]
-    )
-
-    return GroupCard(group: root) { }
-}
+//
+//#Preview {
+//    let cat = Category(
+//        name: "Main",
+//        type: .textInputs(TextInputsData(inputs: []))
+//    )
+//
+//    let a1 = Activity(name: "Water", startingCategory: cat)
+//    let a2 = Activity(name: "Workout", startingCategory: cat)
+//
+//    let subgroup1 = ActivityGroup(name: "Health", subgroups: [], activities: [a1])
+//    let subgroup2 = ActivityGroup(name: "Work", subgroups: [], activities: [a2])
+//
+//    let root = ActivityGroup(
+//        name: "Root Group",
+//        subgroups: [subgroup1, subgroup2],
+//        activities: [a1, a2]
+//    )
+//
+//    return GroupCard(group: root) { }
+//}

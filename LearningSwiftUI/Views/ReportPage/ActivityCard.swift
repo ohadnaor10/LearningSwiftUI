@@ -26,14 +26,14 @@ struct ActivityCard: View {
     }
 }
 
-#Preview {
-    let sampleCategory = Category(
-        name: "Root",
-        type: .textInputs(TextInputsData(inputs: []))
-    )
-    let sampleActivity = Activity(name: "Sample", startingCategory: sampleCategory)
-
-    return ActivityCard(activity: sampleActivity) {
-        print("Tapped!")
-    }
-}
+//#Preview {
+//    let sampleCategory = Category(
+//        name: "Root",
+//        type: .textInputs(TextInputsData(inputs: []))
+//    )
+//    let sampleActivity = Activity(name: "Sample", startingCategory: sampleCategory)
+//
+//    return ActivityCard(activity: sampleActivity) {
+//        print("Tapped!")
+//    }
+//}

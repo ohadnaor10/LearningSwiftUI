@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct LearningSwiftUIApp: App {
+    @StateObject var userData = UserData()
+
     var body: some Scene {
         WindowGroup {
             AppShell()
-                .environmentObject(GroupsStore())
+                .environmentObject(userData)
         }
     }
 }
