@@ -42,3 +42,36 @@ struct CompleteActivityButton: View {
     }
 }
 
+struct AddAttributeButton: View {
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Image(systemName: "plus.circle.fill")
+                Text("Add Attribute")
+            }
+            .font(.headline)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.blue.opacity(0.1))
+            .cornerRadius(12)
+        }
+    }
+}
+
+struct CompleteCategoryButton: View {
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text("Complete Category")
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(12)
+        }
+    }
+}

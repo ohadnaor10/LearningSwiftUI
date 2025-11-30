@@ -11,14 +11,16 @@ struct AddActivityPage: View {
     enum FlowStep {
         case name
         case categories
+        case pickCategoryType
         case editCategory
     }
 
     @State private var step: FlowStep = .name
 
     // DRAFT DATA
-    @State private var activityName: String = ""
-    @State private var categories: [Category] = []
+    @State private var currentlyCreatedActivity = Activity(name: "", categories: [])
+//    @State private var activityName: String = ""
+//    @State private var categories: [Category] = []
     @State private var currentEditingIndex: Int? = nil
 
     @Environment(\.dismiss) private var dismiss
@@ -30,28 +32,29 @@ struct AddActivityPage: View {
             // STEP 1 – NAME
             case .name:
                 AddActivityNameStep(
-                    activityName: $activityName,
+                    activityName: $currentlyCreatedActivity.name,
                     onNext: {
                         step = .categories
                     }
                 )
+
 
             // STEP 2 – CATEGORIES
             case .categories:
                 VStack(spacing: 0) {
 
                     // Top bar
-                    AddCategoryTopBar(activityName: activityName)
+                    AddCategoryTopBar(activityName: currentlyCreatedActivity.name)
 
                     // Body: list of CategoryView cards
                     ScrollView {
                         VStack(spacing: 16) {
-                            if categories.isEmpty {
+                            if currentlyCreatedActivity.categories.isEmpty {
                                 Text("No categories yet")
                                     .foregroundColor(.secondary)
                                     .padding(.top, 24)
                             } else {
-                                ForEach(categories) { category in
+                                ForEach(currentlyCreatedActivity.categories) { category in
                                     CategoryView(category: category)
                                 }
                             }
@@ -61,16 +64,22 @@ struct AddActivityPage: View {
 
                     // Add Category button
                     AddCategoryButton {
-                        // TODO: create a new Category with default type and go to editCategory step
-                        // Example placeholder:
+                        // 1. Create a blank category with a placeholder type
                         let newCategory = Category(
-                            name: "New Category",
-                            type: .textInputs(TextInputsData(inputs: []))
+                            name: "",
+                            type: .textInputs(TextInputsData(inputs: [])) // temporary, will be overwritten
                         )
-                        categories.append(newCategory)
-                        currentEditingIndex = categories.count - 1
-                        step = .editCategory
+
+                        // 2. Append it
+                        currentlyCreatedActivity.categories.append(newCategory)
+
+                        // 3. Track which one we're editing
+                        currentEditingIndex = currentlyCreatedActivity.categories.count - 1
+
+                        // 4. Move to pick-category-type step
+                        step = .pickCategoryType
                     }
+
                     .padding(.horizontal, 24)
                     .padding(.top, 8)
 
@@ -83,10 +92,33 @@ struct AddActivityPage: View {
                     .padding(.horizontal, 24)
                     .padding(.vertical, 24)
                 }
+            case .pickCategoryType:
+                PickCategoryTypePage(
+                    onPick: { selectedType in
+                        currentlyCreatedActivity.categories[currentEditingIndex!].type = selectedType
+                        step = .editCategory
+                    },
+                    onCancel: {
+                        // rollback if needed
+                        step = .categories
+                    }
+                )
 
-            // STEP 3 – EDIT CATEGORY
+            
+            // STEP 4 – EDIT CATEGORY
             case .editCategory:
-                Text("Edit Category Step (to be created)")
+                if let index = currentEditingIndex {
+                    EditCategoryPage(
+                        category: $currentlyCreatedActivity.categories[index],
+                        onDone: {
+                            step = .categories
+                        }
+                    )
+                } else {
+                    // Fallback if somehow no index
+                    Text("No category selected")
+                }
+
             }
         }
         .presentationDetents([.large])
