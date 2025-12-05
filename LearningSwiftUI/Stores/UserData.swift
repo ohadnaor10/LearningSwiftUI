@@ -9,6 +9,14 @@ import Foundation
 
 final class UserData: ObservableObject {
     @Published var activities: [Activity] = []
-    @Published var groups: [ActivityGroup] = []
+    @Published var groups: [ActivityGroup] = [
+        ActivityGroup(
+            name: "Root Group",
+            activities: [
+                Activity(name: "Gym Workout", categories: []),
+                Activity(name: "Running", categories: [])
+            ]
+        )
+    ]
 }
 

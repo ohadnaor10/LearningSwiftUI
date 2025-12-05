@@ -67,6 +67,17 @@ struct AppShell: View {
     }
 }
 
+let sampleUserData: UserData = {
+    let ud = UserData()
+    ud.activities = [
+        Activity(name: "Workout", categories: []),
+        Activity(name: "Study", categories: [])
+    ]
+    return ud
+}()
+
+
 #Preview {
     AppShell()
+        .environmentObject(UserData())
 }

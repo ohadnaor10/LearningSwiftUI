@@ -7,6 +7,9 @@ struct EditCategoryPage: View {
 
     // Local editable copy of the type
     @State private var localType: CategoryType
+    @State private var editingAttributeID: UUID? = nil
+    @State private var tempAttributeName: String = ""
+
 
     init(category: Binding<Category>, onDone: @escaping () -> Void) {
         self._category = category
@@ -37,7 +40,21 @@ struct EditCategoryPage: View {
                             .padding(.top, 16)
                     } else {
                         ForEach(attributeItems) { item in
-                            AttributeCardView(title: item.label)
+                            if editingAttributeID == item.id {
+                                // Edit mode
+                                TextField("", text: $tempAttributeName, onCommit: {
+                                    commitAttributeRename(id: item.id, newName: tempAttributeName)
+                                })
+                                .textFieldStyle(.roundedBorder)
+                                .padding()
+                            } else {
+                                // Normal card, tappable to enter edit mode
+                                Button {
+                                    startEditingAttribute(item)
+                                } label: {
+                                    AttributeCardView(title: item.label)
+                                }
+                            }
                         }
                     }
                 }
@@ -76,7 +93,7 @@ struct EditCategoryPage: View {
 
     // A simple internal representation of an attribute for display
     private struct AttributeItem: Identifiable {
-        let id = UUID()
+        let id: UUID
         let label: String
     }
 
@@ -84,16 +101,18 @@ struct EditCategoryPage: View {
     private var attributeItems: [AttributeItem] {
         switch localType {
         case .choice(let data):
-            return data.choices.map { AttributeItem(label: $0.name) }
+            return data.choices.map { AttributeItem(id: $0.id, label: $0.name) }
+            
 
         case .numberInputs(let data):
-            return data.inputs.map { AttributeItem(label: $0.name) }
+            return data.inputs.map { AttributeItem(id: $0.id, label: $0.name) }
 
         case .textInputs(let data):
-            return data.inputs.map { AttributeItem(label: $0.name) }
+            return data.inputs.map { AttributeItem(id: $0.id, label: $0.name) }
 
-        case .timeInput(let data):
-            return [AttributeItem(label: data.name)]
+        case .timeInput:
+            // No cards here, we will show a dedicated field for time below.
+            return []
         }
     }
 
@@ -106,16 +125,28 @@ struct EditCategoryPage: View {
             let newChoice = Choice(name: "New choice", isOn: false, hasChildren: false)
             data.choices.append(newChoice)
             localType = .choice(data)
+            
+            // Enter rename mode immediately
+            editingAttributeID = newChoice.id
+            tempAttributeName = newChoice.name
 
         case .numberInputs(var data):
             let newInput = NumberInput(name: "New number", inValue: nil)
             data.inputs.append(newInput)
             localType = .numberInputs(data)
+            
+            // Enter rename mode
+            editingAttributeID = newInput.id
+            tempAttributeName = newInput.name
 
         case .textInputs(var data):
             let newInput = TextInput(name: "New text", inValue: nil)
             data.inputs.append(newInput)
             localType = .textInputs(data)
+            
+            // Enter rename mode
+            editingAttributeID = newInput.id
+            tempAttributeName = newInput.name
 
         case .timeInput(var data):
             // For time input, if there is no name yet, set one
@@ -127,4 +158,40 @@ struct EditCategoryPage: View {
             localType = .timeInput(data)
         }
     }
+    
+    private func startEditingAttribute(_ item: AttributeItem) {
+        editingAttributeID = item.id
+        tempAttributeName = item.label
+    }
+
+    private func commitAttributeRename(id: UUID, newName: String) {
+        switch localType {
+
+        case .choice(var data):
+            if let i = data.choices.firstIndex(where: { $0.id == id }) {
+                data.choices[i].name = newName
+            }
+            localType = .choice(data)
+
+        case .numberInputs(var data):
+            if let i = data.inputs.firstIndex(where: { $0.id == id }) {
+                data.inputs[i].name = newName
+            }
+            localType = .numberInputs(data)
+
+        case .textInputs(var data):
+            if let i = data.inputs.firstIndex(where: { $0.id == id }) {
+                data.inputs[i].name = newName
+            }
+            localType = .textInputs(data)
+
+        case .timeInput:
+            // No list here, handled separately if you want
+            break
+        }
+
+        editingAttributeID = nil
+        tempAttributeName = ""
+    }
+
 }

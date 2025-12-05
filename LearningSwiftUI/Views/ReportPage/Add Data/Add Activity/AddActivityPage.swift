@@ -6,7 +6,10 @@
 //
 import SwiftUI
 
+
+
 struct AddActivityPage: View {
+    
 
     enum FlowStep {
         case name
@@ -24,6 +27,9 @@ struct AddActivityPage: View {
     @State private var currentEditingIndex: Int? = nil
 
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var userData: UserData
+    
+    @Binding var group: ActivityGroup     // ← NEW    
 
     var body: some View {
         VStack {
@@ -85,8 +91,9 @@ struct AddActivityPage: View {
 
                     // Complete Activity button
                     CompleteActivityButton {
-                        // TODO: build Activity and add to global store
-                        // For now, just dismiss
+                        userData.activities.append(currentlyCreatedActivity) // add activity globally
+                        group.activities
+                            .append(currentlyCreatedActivity) //add to the group
                         dismiss()
                     }
                     .padding(.horizontal, 24)
