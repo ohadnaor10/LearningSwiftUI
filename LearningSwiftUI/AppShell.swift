@@ -14,6 +14,9 @@ struct AppShell: View {
     // Controls the bottom add menu (for the Report tab)
     @State private var showAddMenu = false
     
+    // NEW: back trigger for ReportPage
+    @State private var reportBackTrigger = 0
+    
 //    @State private var triggerAddActivity = false
 //    @State private var triggerAddGroup = false
 
@@ -30,7 +33,9 @@ struct AppShell: View {
                 TopBarGenericReportPage(
                     title: "Report Your Activities",
                     showAddButton: true,
-                    onAddTapped: { showAddMenu = true }
+                    onAddTapped: { showAddMenu = true },
+                    showBackButton: true,                 // ← NEW
+                    onBackTapped: { reportBackTrigger &+= 1 } // ← NEW
                 )
 
             } else {
@@ -47,7 +52,9 @@ struct AppShell: View {
                     CalendarView(currentMonth: $current)
 
                 case 1:
-                    ReportPage(showAddMenu: $showAddMenu)
+                    ReportPage(showAddMenu: $showAddMenu,
+                               backTrigger: $reportBackTrigger     // ← NEW
+                    )
 
                 default:
                     CalendarView(currentMonth: $current)

@@ -22,7 +22,6 @@
 		B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8A2ECD097300F1D118 /* CalendarView.swift */; };
 		B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8B2ECD097300F1D118 /* Month.swift */; };
 		B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */; };
-		B49783322ED643D800B289A7 /* AddActionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783312ED643D800B289A7 /* AddActionsHandler.swift */; };
 		B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783342ED6453B00B289A7 /* AddActivityPage.swift */; };
 		B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783382ED650E100B289A7 /* AddGroupPage.swift */; };
 		B497833B2ED6525700B289A7 /* GroupsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833A2ED6525700B289A7 /* GroupsStore.swift */; };
@@ -62,7 +61,6 @@
 		B41F2B912ECD097300F1D118 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
 		B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
 		B41F2BA12ECD176000F1D118 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
-		B49783312ED643D800B289A7 /* AddActionsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionsHandler.swift; sourceTree = "<group>"; };
 		B49783342ED6453B00B289A7 /* AddActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityPage.swift; sourceTree = "<group>"; };
 		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
 		B497833A2ED6525700B289A7 /* GroupsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsStore.swift; sourceTree = "<group>"; };
@@ -160,11 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				B49783332ED6450400B289A7 /* Add Data */,
-				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
 				B41F2B822ECD097300F1D118 /* ReportPage.swift */,
+				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
 				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
 				B4C13B912ED207B900393766 /* ContentPage.swift */,
-				B49783312ED643D800B289A7 /* AddActionsHandler.swift */,
 			);
 			path = ReportPage;
 			sourceTree = "<group>";
@@ -344,7 +341,6 @@
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
 				B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */,
-				B49783322ED643D800B289A7 /* AddActionsHandler.swift in Sources */,
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B497833B2ED6525700B289A7 /* GroupsStore.swift in Sources */,
 				B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */,

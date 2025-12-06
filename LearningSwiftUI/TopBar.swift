@@ -44,11 +44,22 @@ struct TopBarGenericReportPage: View {
     var showAddButton: Bool = false
     var onAddTapped: () -> Void = {}
 
+    var showBackButton: Bool = false          // ← NEW
+    var onBackTapped: () -> Void = {}         // ← NEW
+
     var body: some View {
         HStack {
+            if showBackButton {
+                Button(action: onBackTapped) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 20, weight: .bold))
+                }
+                .padding(.leading, 12)
+            }
+
             Text(title)
                 .font(.headline)
-                .padding(.leading, 12)
+                .padding(.leading, showBackButton ? 0 : 12)
 
             Spacer()
 
