@@ -7,7 +7,11 @@ struct ReportPage: View {
     
     @State private var showAddActivityFlow = false
     @State private var showAddGroupFlow = false
+    @State private var showReportActivityFlow = false
+    
     @EnvironmentObject var userData: UserData
+    
+    @State private var selectedActivityID: UUID? = nil
     
     @State private var currentGroupIndex: Int = 0
     @State private var currentSubgroupID: UUID? = nil   // ← NEW
@@ -21,7 +25,10 @@ struct ReportPage: View {
             if userData.groups.indices.contains(currentGroupIndex) {
                 ContentPage(
                     group: currentGroupBinding,
-                    onSelectActivity: { _ in },
+                    onSelectActivity: { activity in
+                        selectedActivityID = activity.id
+                        showReportActivityFlow = true
+                    },
                     onSelectGroup: { subgroup in
                         // Find this subgroup inside the CURRENT group's subgroups
                         let current = getGroup(at: subgroupPath,
@@ -96,6 +103,12 @@ struct ReportPage: View {
             AddGroupPage(group: currentGroupBinding)
                 .environmentObject(userData)
         }
+        .sheet(isPresented: $showReportActivityFlow) {
+            if let activityBinding = selectedActivityBinding {
+                ReportActivityPage(activity: activityBinding)
+                    .environmentObject(userData)
+            }
+        }
         .onChange(of: backTrigger) { _ in
             handleBackTapped()
         }
@@ -122,6 +135,35 @@ struct ReportPage: View {
         )
     }
     
+    
+    private var selectedActivityBinding: Binding<Activity>? {
+        guard let id = selectedActivityID else { return nil }
+
+        return Binding(
+            get: {
+                let group = getGroup(
+                    at: subgroupPath,
+                    in: userData.groups[currentGroupIndex]
+                )
+                return group.activities.first(where: { $0.id == id })!
+            },
+            set: { newValue in
+                var group = getGroup(
+                    at: subgroupPath,
+                    in: userData.groups[currentGroupIndex]
+                )
+                if let i = group.activities.firstIndex(where: { $0.id == id }) {
+                    group.activities[i] = newValue
+                }
+                setGroup(
+                    group,
+                    at: subgroupPath,
+                    in: &userData.groups[currentGroupIndex]
+                )
+            }
+        )
+    }
+
     // Walk down the subgroupPath to get the current group
     private func getGroup(at path: [Int], in root: ActivityGroup) -> ActivityGroup {
         var group = root

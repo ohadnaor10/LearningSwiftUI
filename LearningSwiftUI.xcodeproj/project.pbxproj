@@ -39,6 +39,8 @@
 		B4C13B8E2ED2071600393766 /* ActivityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8D2ED2071200393766 /* ActivityGroup.swift */; };
 		B4C13B902ED2077300393766 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8F2ED2077300393766 /* GroupCard.swift */; };
 		B4C13B922ED207B900393766 /* ContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B912ED207B900393766 /* ContentPage.swift */; };
+		B4C89C462EE44A4D0004A902 /* ReportActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */; };
+		B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +61,6 @@
 		B41F2B8B2ECD097300F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
 		B41F2B912ECD097300F1D118 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
-		B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
 		B41F2BA12ECD176000F1D118 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
 		B49783342ED6453B00B289A7 /* AddActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityPage.swift; sourceTree = "<group>"; };
 		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
@@ -78,6 +79,8 @@
 		B4C13B8D2ED2071200393766 /* ActivityGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGroup.swift; sourceTree = "<group>"; };
 		B4C13B8F2ED2077300393766 /* GroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCard.swift; sourceTree = "<group>"; };
 		B4C13B912ED207B900393766 /* ContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPage.swift; sourceTree = "<group>"; };
+		B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportActivityPage.swift; sourceTree = "<group>"; };
+		B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
 				B4C13B832ED1EB3700393766 /* Category.swift */,
 				B4C13B812ED1EB2100393766 /* Activity.swift */,
+				B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -157,11 +161,10 @@
 		B41F2B842ECD097300F1D118 /* ReportPage */ = {
 			isa = PBXGroup;
 			children = (
-				B49783332ED6450400B289A7 /* Add Data */,
 				B41F2B822ECD097300F1D118 /* ReportPage.swift */,
-				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
-				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
-				B4C13B912ED207B900393766 /* ContentPage.swift */,
+				B4C89C472EE45E5A0004A902 /* ReportPageContents */,
+				B4C89C442EE4480D0004A902 /* ReportActivityProtocol */,
+				B49783332ED6450400B289A7 /* Add Data */,
 			);
 			path = ReportPage;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 		B497833C2ED6532D00B289A7 /* Individual Stores */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */,
 				B41F2BA12ECD176000F1D118 /* ActivityStore.swift */,
 				B41F2B912ECD097300F1D118 /* CalendarStore.swift */,
 				B497833A2ED6525700B289A7 /* GroupsStore.swift */,
@@ -241,16 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				B49783382ED650E100B289A7 /* AddGroupPage.swift */,
-				B49783542EE360E100B289A7 /* Steps */,
 			);
 			path = "Add Group";
-			sourceTree = "<group>";
-		};
-		B49783542EE360E100B289A7 /* Steps */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Steps;
 			sourceTree = "<group>";
 		};
 		B4C13B8C2ED2070800393766 /* Groups */ = {
@@ -259,6 +253,24 @@
 				B4C13B8D2ED2071200393766 /* ActivityGroup.swift */,
 			);
 			path = Groups;
+			sourceTree = "<group>";
+		};
+		B4C89C442EE4480D0004A902 /* ReportActivityProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */,
+			);
+			path = ReportActivityProtocol;
+			sourceTree = "<group>";
+		};
+		B4C89C472EE45E5A0004A902 /* ReportPageContents */ = {
+			isa = PBXGroup;
+			children = (
+				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
+				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
+				B4C13B912ED207B900393766 /* ContentPage.swift */,
+			);
+			path = ReportPageContents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +353,7 @@
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
 				B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */,
+				B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */,
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B497833B2ED6525700B289A7 /* GroupsStore.swift in Sources */,
 				B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */,
@@ -358,6 +371,7 @@
 				B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */,
 				B49783502EDCE3C900B289A7 /* EditCategoryPage.swift in Sources */,
 				B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */,
+				B4C89C462EE44A4D0004A902 /* ReportActivityPage.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
 				B49783522EDCED7C00B289A7 /* AttributeCardView.swift in Sources */,
 				B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */,

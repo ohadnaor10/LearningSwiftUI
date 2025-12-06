@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppShell: View {
     @State private var current = Month.current
-    @State private var currentTab = 0
+    @State private var currentTab = 1
     
     // Controls the bottom add menu (for the Report tab)
     @State private var showAddMenu = false
@@ -57,7 +57,9 @@ struct AppShell: View {
                     )
 
                 default:
-                    CalendarView(currentMonth: $current)
+                    ReportPage(showAddMenu: $showAddMenu,
+                               backTrigger: $reportBackTrigger     // ← NEW
+                    )
                 }
 
                 // -------------------------------

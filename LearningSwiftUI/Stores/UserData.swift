@@ -18,5 +18,6 @@ final class UserData: ObservableObject {
             ]
         )
     ]
+    @Published var activityInstances: [ActivityInstance] = []
 }
 
