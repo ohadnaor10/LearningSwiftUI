@@ -41,6 +41,13 @@
 		B4C13B922ED207B900393766 /* ContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B912ED207B900393766 /* ContentPage.swift */; };
 		B4C89C462EE44A4D0004A902 /* ReportActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */; };
 		B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */; };
+		B4C89C4C2EE468FA0004A902 /* ChooseTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */; };
+		B4C89C4E2EE469960004A902 /* ChooseEarlierTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */; };
+		B4C89C502EE46A3E0004A902 /* CategoryReportRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */; };
+		B4C89C532EE46AC30004A902 /* ChoiceCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */; };
+		B4C89C552EE46C770004A902 /* NumberCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */; };
+		B4C89C572EE46CAE0004A902 /* TextCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */; };
+		B4C89C592EE46E720004A902 /* ReportDonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C582EE46E720004A902 /* ReportDonePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +88,13 @@
 		B4C13B912ED207B900393766 /* ContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPage.swift; sourceTree = "<group>"; };
 		B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportActivityPage.swift; sourceTree = "<group>"; };
 		B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
+		B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTimePage.swift; sourceTree = "<group>"; };
+		B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEarlierTimePage.swift; sourceTree = "<group>"; };
+		B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReportRouter.swift; sourceTree = "<group>"; };
+		B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C582EE46E720004A902 /* ReportDonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDonePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,15 +172,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B41F2B842ECD097300F1D118 /* ReportPage */ = {
+		B41F2B842ECD097300F1D118 /* Report Page */ = {
 			isa = PBXGroup;
 			children = (
 				B41F2B822ECD097300F1D118 /* ReportPage.swift */,
-				B4C89C472EE45E5A0004A902 /* ReportPageContents */,
-				B4C89C442EE4480D0004A902 /* ReportActivityProtocol */,
+				B4C89C472EE45E5A0004A902 /* Report Page Contents */,
+				B4C89C442EE4480D0004A902 /* Report Activity Protocol */,
 				B49783332ED6450400B289A7 /* Add Data */,
 			);
-			path = ReportPage;
+			path = "Report Page";
 			sourceTree = "<group>";
 		};
 		B41F2B8D2ECD097300F1D118 /* Calendar */ = {
@@ -191,7 +205,7 @@
 		B41F2B932ECD09B200F1D118 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2B842ECD097300F1D118 /* ReportPage */,
+				B41F2B842ECD097300F1D118 /* Report Page */,
 				B41F2B8D2ECD097300F1D118 /* Calendar */,
 			);
 			path = Views;
@@ -255,22 +269,45 @@
 			path = Groups;
 			sourceTree = "<group>";
 		};
-		B4C89C442EE4480D0004A902 /* ReportActivityProtocol */ = {
+		B4C89C442EE4480D0004A902 /* Report Activity Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */,
+				B4C89C4A2EE467010004A902 /* Steps */,
 			);
-			path = ReportActivityProtocol;
+			path = "Report Activity Protocol";
 			sourceTree = "<group>";
 		};
-		B4C89C472EE45E5A0004A902 /* ReportPageContents */ = {
+		B4C89C472EE45E5A0004A902 /* Report Page Contents */ = {
 			isa = PBXGroup;
 			children = (
 				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
 				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
 				B4C13B912ED207B900393766 /* ContentPage.swift */,
 			);
-			path = ReportPageContents;
+			path = "Report Page Contents";
+			sourceTree = "<group>";
+		};
+		B4C89C4A2EE467010004A902 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */,
+				B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */,
+				B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */,
+				B4C89C582EE46E720004A902 /* ReportDonePage.swift */,
+				B4C89C512EE46A8F0004A902 /* Category Report Types */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		B4C89C512EE46A8F0004A902 /* Category Report Types */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */,
+				B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */,
+				B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */,
+			);
+			path = "Category Report Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C89C572EE46CAE0004A902 /* TextCategoryReportPage.swift in Sources */,
 				B4C13B922ED207B900393766 /* ContentPage.swift in Sources */,
 				B4C13B8E2ED2071600393766 /* ActivityGroup.swift in Sources */,
 				B41F2B002EC604F500F1D118 /* AppShell.swift in Sources */,
@@ -353,6 +391,8 @@
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
 				B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */,
+				B4C89C532EE46AC30004A902 /* ChoiceCategoryReportPage.swift in Sources */,
+				B4C89C502EE46A3E0004A902 /* CategoryReportRouter.swift in Sources */,
 				B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */,
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B497833B2ED6525700B289A7 /* GroupsStore.swift in Sources */,
@@ -363,6 +403,7 @@
 				B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */,
 				B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */,
 				B497834B2EDB2EB800B289A7 /* PickCategoryTypePage.swift in Sources */,
+				B4C89C4E2EE469960004A902 /* ChooseEarlierTimePage.swift in Sources */,
 				B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */,
 				B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */,
 				B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */,
@@ -375,9 +416,12 @@
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
 				B49783522EDCED7C00B289A7 /* AttributeCardView.swift in Sources */,
 				B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */,
+				B4C89C4C2EE468FA0004A902 /* ChooseTimePage.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
 				B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */,
 				B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */,
+				B4C89C592EE46E720004A902 /* ReportDonePage.swift in Sources */,
+				B4C89C552EE46C770004A902 /* NumberCategoryReportPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
