@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentPage: View {
     
     @Binding var group: ActivityGroup
-    let onSelectActivity: (Activity) -> Void
+    let onSelectActivity: (Activity, Int) -> Void
     let onSelectGroup: (ActivityGroup) -> Void
     
     var body: some View {
@@ -23,10 +23,10 @@ struct ContentPage: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(group.activities) { activity in
+                    ForEach(Array(group.activities.enumerated()), id: \.element.id) { index, activity in
                         ActivityCard(
                             activity: activity,
-                            onTap: { onSelectActivity(activity) }
+                            onTap: { onSelectActivity(activity, index) }
                         )
                     }
                     

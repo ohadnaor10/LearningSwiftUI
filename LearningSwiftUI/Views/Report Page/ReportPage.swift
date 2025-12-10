@@ -12,6 +12,7 @@ struct ReportPage: View {
     @EnvironmentObject var userData: UserData
     
     @State private var selectedActivityID: UUID? = nil
+    @State private var selectedActivityIndex: Int? = nil
     
     @State private var currentGroupIndex: Int = 0
     @State private var currentSubgroupID: UUID? = nil   // ← NEW
@@ -25,8 +26,9 @@ struct ReportPage: View {
             if userData.groups.indices.contains(currentGroupIndex) {
                 ContentPage(
                     group: currentGroupBinding,
-                    onSelectActivity: { activity in
+                    onSelectActivity: { activity, index in
                         selectedActivityID = activity.id
+                        selectedActivityIndex = index
                         showReportActivityFlow = true
                     },
                     onSelectGroup: { subgroup in
@@ -107,6 +109,8 @@ struct ReportPage: View {
             if let activityBinding = selectedActivityBinding {
                 ReportActivityPage(activity: activityBinding)
                     .environmentObject(userData)
+            } else {
+                Text("Loading…")
             }
         }
         .onChange(of: backTrigger) { _ in
@@ -137,7 +141,21 @@ struct ReportPage: View {
     
     
     private var selectedActivityBinding: Binding<Activity>? {
-        guard let id = selectedActivityID else { return nil }
+        guard
+            let index = selectedActivityIndex,
+            userData.groups.indices.contains(currentGroupIndex)
+        else {
+            return nil
+        }
+
+        // Optional, safety on subgroupPath
+        let group = getGroup(
+            at: subgroupPath,
+            in: userData.groups[currentGroupIndex]
+        )
+        guard group.activities.indices.contains(index) else {
+            return nil
+        }
 
         return Binding(
             get: {
@@ -145,16 +163,15 @@ struct ReportPage: View {
                     at: subgroupPath,
                     in: userData.groups[currentGroupIndex]
                 )
-                return group.activities.first(where: { $0.id == id })!
+                return group.activities[index]
             },
             set: { newValue in
                 var group = getGroup(
                     at: subgroupPath,
                     in: userData.groups[currentGroupIndex]
                 )
-                if let i = group.activities.firstIndex(where: { $0.id == id }) {
-                    group.activities[i] = newValue
-                }
+                group.activities[index] = newValue
+
                 setGroup(
                     group,
                     at: subgroupPath,
@@ -164,6 +181,7 @@ struct ReportPage: View {
         )
     }
 
+    
     // Walk down the subgroupPath to get the current group
     private func getGroup(at path: [Int], in root: ActivityGroup) -> ActivityGroup {
         var group = root
