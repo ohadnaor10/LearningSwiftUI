@@ -11,7 +11,7 @@ import Foundation
 /// It only contains:
 /// 1. A name
 /// 2. A pointer to the starting category of its reporting tree.
-struct Activity: Identifiable, Hashable {
+struct Activity: Identifiable, Hashable, Codable {
     let id: UUID
     var name: String
     var categories: [Category]

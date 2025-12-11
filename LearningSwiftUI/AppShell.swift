@@ -87,6 +87,16 @@ let sampleUserData: UserData = {
 
 
 #Preview {
-    AppShell()
-        .environmentObject(UserData())
+    let userData = UserData.loadFromDisk()
+    return AppShell()
+        .environmentObject(userData)
+        .onChange(of: userData.activities) {
+            userData.saveToDisk()
+        }
+        .onChange(of: userData.groups) {
+            userData.saveToDisk()
+        }
+        .onChange(of: userData.activityInstances) {
+            userData.saveToDisk()
+        }
 }

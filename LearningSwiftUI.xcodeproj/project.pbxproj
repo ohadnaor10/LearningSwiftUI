@@ -142,9 +142,9 @@
 		B41F2B692ECD096800F1D118 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
-				B4C13B832ED1EB3700393766 /* Category.swift */,
 				B4C13B812ED1EB2100393766 /* Activity.swift */,
+				B4C13B832ED1EB3700393766 /* Category.swift */,
+				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
 				B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */,
 			);
 			path = Activities;
@@ -165,8 +165,8 @@
 		B41F2B712ECD096800F1D118 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13B8C2ED2070800393766 /* Groups */,
 				B41F2B692ECD096800F1D118 /* Activities */,
+				B4C13B8C2ED2070800393766 /* Groups */,
 				B41F2B6F2ECD096800F1D118 /* Day */,
 			);
 			path = Models;
