@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ReportActivityPage: View {
-    
-    @Binding var activity: Activity
+
+    @State private var activity: Activity
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var userData: UserData
-    
+
     enum ReportStep {
         case chooseTime
         case chooseEarlierTime
@@ -15,23 +15,32 @@ struct ReportActivityPage: View {
 
     @State private var step: ReportStep = .chooseTime
     @State private var instance: ActivityInstance
-    
-    init(activity: Binding<Activity>) {
-        self._activity = activity
+
+    // MARK: - Init
+
+    init(activity: Activity) {
+        _activity = State(initialValue: activity)
+
         let initial = ActivityInstance(
-            activityID: activity.wrappedValue.id,
+            activityID: activity.id,
             timestamp: Date(),
             values: [:]
         )
-        self._instance = State(initialValue: initial)
+        _instance = State(initialValue: initial)
     }
+
+    // MARK: - Body
+
     var body: some View {
         VStack {
             switch step {
 
             case .chooseTime:
                 ChooseTimePage(
-                    onNow: { /* set instance.timestamp, go to first category */ },
+                    onNow: {
+                        instance.timestamp = Date()
+                        goToFirstCategory()
+                    },
                     onEarlier: {
                         step = .chooseEarlierTime
                     }
@@ -39,10 +48,9 @@ struct ReportActivityPage: View {
 
             case .chooseEarlierTime:
                 ChooseEarlierTimePage { chosen in
-//                        instance.timestamp = chosen
+                    instance.timestamp = chosen
                     goToFirstCategory()
                 }
-
 
             case .category(let index):
                 CategoryReportRouter(
@@ -61,6 +69,8 @@ struct ReportActivityPage: View {
         }
     }
 
+    // MARK: - Step helpers
+
     private func goToFirstCategory() {
         if activity.categories.isEmpty {
             step = .done
@@ -76,16 +86,19 @@ struct ReportActivityPage: View {
         } else {
             step = .done
         }
-        
     }
-    
+
+    // MARK: - Store answers into instance
+
     private func saveCategoryResult(_ index: Int) {
         let cat = activity.categories[index]
 
         switch cat.type {
 
         case .choice(let data):
-            let selected = data.choices.filter { $0.isOn }.map { $0.id }
+            let selected = data.choices
+                .filter { $0.isOn }
+                .map { $0.id }
             instance.values[cat.id] = .choice(selected)
 
         case .numberInputs(let data):

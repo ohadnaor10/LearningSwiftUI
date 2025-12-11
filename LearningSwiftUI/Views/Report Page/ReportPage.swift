@@ -3,21 +3,19 @@ import SwiftUI
 struct ReportPage: View {
 
     @Binding var showAddMenu: Bool
-    @Binding var backTrigger: Int      // ← NEW
-    
+    @Binding var backTrigger: Int
+
     @State private var showAddActivityFlow = false
     @State private var showAddGroupFlow = false
-    @State private var showReportActivityFlow = false
-    
+
+    @State private var selectedActivity: Activity? = nil
+
     @EnvironmentObject var userData: UserData
-    
-    @State private var selectedActivityID: UUID? = nil
-    @State private var selectedActivityIndex: Int? = nil
-    
+
     @State private var currentGroupIndex: Int = 0
-    @State private var currentSubgroupID: UUID? = nil   // ← NEW
-    @State private var subgroupPath: [Int] = []    // ← NEW
-    
+    @State private var currentSubgroupID: UUID? = nil
+    @State private var subgroupPath: [Int] = []
+
     var body: some View {
         ZStack {
             // -------------------------
@@ -26,16 +24,16 @@ struct ReportPage: View {
             if userData.groups.indices.contains(currentGroupIndex) {
                 ContentPage(
                     group: currentGroupBinding,
-                    onSelectActivity: { activity, index in
-                        selectedActivityID = activity.id
-                        selectedActivityIndex = index
-                        showReportActivityFlow = true
+                    onSelectActivity: { activity in
+                        selectedActivity = activity
                     },
                     onSelectGroup: { subgroup in
                         // Find this subgroup inside the CURRENT group's subgroups
-                        let current = getGroup(at: subgroupPath,
-                                               in: userData.groups[currentGroupIndex])
-                        
+                        let current = getGroup(
+                            at: subgroupPath,
+                            in: userData.groups[currentGroupIndex]
+                        )
+
                         if let idx = current.subgroups.firstIndex(where: { $0.id == subgroup.id }) {
                             // Go one step deeper in the path: current → its subgroup
                             subgroupPath.append(idx)
@@ -105,19 +103,15 @@ struct ReportPage: View {
             AddGroupPage(group: currentGroupBinding)
                 .environmentObject(userData)
         }
-        .sheet(isPresented: $showReportActivityFlow) {
-            if let activityBinding = selectedActivityBinding {
-                ReportActivityPage(activity: activityBinding)
-                    .environmentObject(userData)
-            } else {
-                Text("Loading…")
-            }
+        .sheet(item: $selectedActivity) { activity in
+            ReportActivityPage(activity: activity)
+                .environmentObject(userData)
         }
         .onChange(of: backTrigger) { _ in
             handleBackTapped()
         }
     }
-    
+
     // -------------------------
     // GROUP BINDING HELPER
     // -------------------------
@@ -138,50 +132,7 @@ struct ReportPage: View {
             }
         )
     }
-    
-    
-    private var selectedActivityBinding: Binding<Activity>? {
-        guard
-            let index = selectedActivityIndex,
-            userData.groups.indices.contains(currentGroupIndex)
-        else {
-            return nil
-        }
 
-        // Optional, safety on subgroupPath
-        let group = getGroup(
-            at: subgroupPath,
-            in: userData.groups[currentGroupIndex]
-        )
-        guard group.activities.indices.contains(index) else {
-            return nil
-        }
-
-        return Binding(
-            get: {
-                let group = getGroup(
-                    at: subgroupPath,
-                    in: userData.groups[currentGroupIndex]
-                )
-                return group.activities[index]
-            },
-            set: { newValue in
-                var group = getGroup(
-                    at: subgroupPath,
-                    in: userData.groups[currentGroupIndex]
-                )
-                group.activities[index] = newValue
-
-                setGroup(
-                    group,
-                    at: subgroupPath,
-                    in: &userData.groups[currentGroupIndex]
-                )
-            }
-        )
-    }
-
-    
     // Walk down the subgroupPath to get the current group
     private func getGroup(at path: [Int], in root: ActivityGroup) -> ActivityGroup {
         var group = root
@@ -205,22 +156,20 @@ struct ReportPage: View {
             if pathSlice.count == 1 {
                 group.subgroups[first] = newGroup
             } else {
-                set(in: &group.subgroups[first],
+                set(
+                    in: &group.subgroups[first],
                     pathSlice: pathSlice.dropFirst(),
-                    newGroup: newGroup)
+                    newGroup: newGroup
+                )
             }
         }
 
         set(in: &root, pathSlice: ArraySlice(path), newGroup: newGroup)
     }
-    
+
     private func handleBackTapped() {
-        // Example: path based navigation
         if !subgroupPath.isEmpty {
             subgroupPath.removeLast()
         }
-        // If you are still at root (subgroupPath empty),
-        // do nothing. Arrow visibility control can come later.
     }
-
 }
