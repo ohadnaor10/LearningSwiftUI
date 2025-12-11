@@ -36,7 +36,7 @@ struct Choice: Identifiable, Hashable, Codable  {
     var name: String
     var isOn: Bool
     var hasChildren: Bool
-//    var next: Category?   // children nodes
+    var subcategories: [Category] = []  // children nodes
 }
 
 // MARK: - Number Inputs

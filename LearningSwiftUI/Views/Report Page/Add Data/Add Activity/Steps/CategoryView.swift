@@ -90,9 +90,9 @@ struct CategoryView: View {
                 }
 
                 // RIGHT: state LED (children or not)
-                Circle()
-                    .fill(hasChildren ? Color.green : Color.red)
-                    .frame(width: 12, height: 12)
+//                Circle()
+//                    .fill(hasChildren ? Color.green : Color.red)
+//                    .frame(width: 12, height: 12)
             }
             .padding()
             .frame(width: cardWidth, height: cardHeight, alignment: .leading)
