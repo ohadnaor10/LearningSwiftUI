@@ -36,9 +36,16 @@ struct EditChoiceChildrenPage: View {
                                 .foregroundColor(.secondary)
                                 .padding(.top, 24)
                         } else {
-                            ForEach(subcategories) { category in
-                                CategoryView(category: category)
+                            ForEach(Array(subcategories.enumerated()), id: \.element.id) { index, category in
+                                Button {
+                                    currentEditingIndex = index
+                                    step = .editCategory
+                                } label: {
+                                    CategoryView(category: category)
+                                }
+                                .buttonStyle(.plain)
                             }
+
                         }
                     }
                     .padding(.vertical, 16)
@@ -59,7 +66,7 @@ struct EditChoiceChildrenPage: View {
                 .padding(.top, 8)
 
                 // Done editing children
-                CompleteActivityButton {
+                CompleteActivityButton(title: "Complete Subcategories") {
                     dismiss()
                 }
                 .padding(.horizontal, 24)

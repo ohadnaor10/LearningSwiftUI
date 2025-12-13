@@ -27,11 +27,12 @@ struct AddCategoryButton: View {
 }
 
 struct CompleteActivityButton: View {
+    var title: String = "Complete Activity"
     var action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            Text("Complete Activity")
+            Text(title)
                 .font(.headline)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)

@@ -23,6 +23,7 @@
 		B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8B2ECD097300F1D118 /* Month.swift */; };
 		B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */; };
 		B45496CE2EEB835600EEAB8A /* EditChoiceChildrenPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */; };
+		B45496D02EEDBD0600EEAB8A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CF2EEDBD0600EEAB8A /* SampleData.swift */; };
 		B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783342ED6453B00B289A7 /* AddActivityPage.swift */; };
 		B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783382ED650E100B289A7 /* AddGroupPage.swift */; };
 		B497833E2ED6536800B289A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833D2ED6536800B289A7 /* UserData.swift */; };
@@ -68,6 +69,7 @@
 		B41F2B8B2ECD097300F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
 		B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoiceChildrenPage.swift; sourceTree = "<group>"; };
+		B45496CF2EEDBD0600EEAB8A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B49783342ED6453B00B289A7 /* AddActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityPage.swift; sourceTree = "<group>"; };
 		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
 		B497833D2ED6536800B289A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B497833D2ED6536800B289A7 /* UserData.swift */,
+				B45496CF2EEDBD0600EEAB8A /* SampleData.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */,
 				B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */,
 				B4C89C592EE46E720004A902 /* ReportDonePage.swift in Sources */,
+				B45496D02EEDBD0600EEAB8A /* SampleData.swift in Sources */,
 				B4C89C552EE46C770004A902 /* NumberCategoryReportPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

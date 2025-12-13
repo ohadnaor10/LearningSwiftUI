@@ -60,8 +60,14 @@ struct AddActivityPage: View {
                                     .foregroundColor(.secondary)
                                     .padding(.top, 24)
                             } else {
-                                ForEach(currentlyCreatedActivity.categories) { category in
-                                    CategoryView(category: category)
+                                ForEach(Array(currentlyCreatedActivity.categories.enumerated()), id: \.element.id) { index, category in
+                                    Button {
+                                        currentEditingIndex = index
+                                        step = .editCategory
+                                    } label: {
+                                        CategoryView(category: category)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
