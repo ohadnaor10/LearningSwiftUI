@@ -138,5 +138,14 @@ struct CalendarView: View {
                 }
             }
         }
+        
+        .preference(
+            key: TopBarPreferenceKey.self,
+            value: .calendar(
+                month: currentMonth,
+                isCurrent: currentMonth == .current
+            )
+        )
     }
+
 }

@@ -1,26 +1,16 @@
-//
-//  AppShell.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 13/11/2025.
-//
-
 import SwiftUI
 
 struct AppShell: View {
-    @State private var topBar: AnyView = AnyView(EmptyView())
+    @State private var topBarConfig: TopBarConfig = .empty
 
     @State private var current = Month.current
     @State private var currentTab = 1
-    
+
     // Controls the bottom add menu (for the Report tab)
     @State private var showAddMenu = false
-    
-    // NEW: back trigger for ReportPage
+
+    // Back trigger for ReportPage
     @State private var reportBackTrigger = 0
-    
-//    @State private var triggerAddActivity = false
-//    @State private var triggerAddGroup = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -28,19 +18,20 @@ struct AppShell: View {
             // -------------------------------
             // TOP BAR
             // -------------------------------
-            if currentTab == 0 {
-                TopBar(month: current, isCurrentMonth: current == .current)
+            switch topBarConfig {
+            case .calendar(let month, let isCurrent):
+                TopBar(month: month, isCurrentMonth: isCurrent)
 
-            } else if currentTab == 1 {
+            case .report(let title, let showAdd, let showBack):
                 TopBarGenericReportPage(
-                    title: "Report Your Activities",
-                    showAddButton: true,
+                    title: title,
+                    showAddButton: showAdd,
                     onAddTapped: { showAddMenu = true },
-                    showBackButton: true,                 // ← NEW
-                    onBackTapped: { reportBackTrigger &+= 1 } // ← NEW
+                    showBackButton: showBack,
+                    onBackTapped: { reportBackTrigger &+= 1 }
                 )
 
-            } else {
+            case .empty:
                 TopBarGeneric(title: "")
             }
 
@@ -48,25 +39,25 @@ struct AppShell: View {
             // MAIN CONTENT
             // -------------------------------
             ZStack {
-
                 switch currentTab {
                 case 0:
                     CalendarView(currentMonth: $current)
 
                 case 1:
-                    ReportPage(showAddMenu: $showAddMenu,
-                               backTrigger: $reportBackTrigger     // ← NEW
+                    ReportPage(
+                        showAddMenu: $showAddMenu,
+                        backTrigger: $reportBackTrigger
                     )
 
                 default:
-                    ReportPage(showAddMenu: $showAddMenu,
-                               backTrigger: $reportBackTrigger     // ← NEW
+                    ReportPage(
+                        showAddMenu: $showAddMenu,
+                        backTrigger: $reportBackTrigger
                     )
                 }
-
-                // -------------------------------
-                // ADD MENU OVERLAY (Report Tab)
-                // -------------------------------
+            }
+            .onPreferenceChange(TopBarPreferenceKey.self) { newConfig in
+                topBarConfig = newConfig
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
@@ -78,27 +69,18 @@ struct AppShell: View {
     }
 }
 
-let sampleUserData: UserData = {
-    let ud = UserData()
-    ud.activities = [
-        Activity(name: "Workout", categories: []),
-        Activity(name: "Study", categories: [])
-    ]
-    return ud
-}()
-
-
 #Preview {
     let userData = UserData.loadFromDisk()
+
     return AppShell()
         .environmentObject(userData)
-        .onChange(of: userData.activities) {
+        .onChange(of: userData.activities) { _, _ in
             userData.saveToDisk()
         }
-        .onChange(of: userData.groups) {
+        .onChange(of: userData.groups) { _, _ in
             userData.saveToDisk()
         }
-        .onChange(of: userData.activityInstances) {
+        .onChange(of: userData.activityInstances) { _, _ in
             userData.saveToDisk()
         }
 }

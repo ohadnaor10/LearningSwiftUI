@@ -91,6 +91,14 @@ struct ReportPage: View {
                 .animation(.easeOut(duration: 0.25), value: showAddMenu)
             }
         }
+        .preference(
+            key: TopBarPreferenceKey.self,
+            value: .report(
+                title: "Report Your Activities",
+                showAdd: true,
+                showBack: !subgroupPath.isEmpty
+            )
+        )
 
         // -------------------------
         // SHEETS
@@ -207,6 +215,7 @@ struct TopBarGenericReportPage: View {
                 .padding(.trailing, 12)
             }
         }
+        
         .frame(maxWidth: .infinity)
         .padding(.vertical, 10)
         .background(Color.gray.opacity(0.15))

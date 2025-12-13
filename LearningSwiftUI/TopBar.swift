@@ -33,10 +33,15 @@ struct TopBarGeneric: View {
 
 import SwiftUI
 
+enum TopBarConfig: Equatable {
+    case calendar(month: Month, isCurrent: Bool)
+    case report(title: String, showAdd: Bool, showBack: Bool)
+    case empty
+}
 
 struct TopBarPreferenceKey: PreferenceKey {
-    static var defaultValue: AnyView? = nil
-    static func reduce(value: inout AnyView?, nextValue: () -> AnyView?) {
-        value = nextValue() ?? value
+    static var defaultValue: TopBarConfig = .empty
+    static func reduce(value: inout TopBarConfig, nextValue: () -> TopBarConfig) {
+        value = nextValue()
     }
 }
