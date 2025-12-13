@@ -10,6 +10,10 @@ struct EditCategoryPage: View {
     @State private var editingAttributeID: UUID? = nil
     @State private var tempAttributeName: String = ""
 
+    // NEW: children editor state
+    @State private var showChildrenEditor = false
+    @State private var editingChildrenChoiceID: UUID? = nil
+    @State private var tempChildren: [Category] = []
 
     init(category: Binding<Category>, onDone: @escaping () -> Void) {
         self._category = category
@@ -48,17 +52,29 @@ struct EditCategoryPage: View {
                                 .textFieldStyle(.roundedBorder)
                                 .padding()
                             } else {
-                                // Normal card, tappable to enter edit mode
-                                Button {
-                                    startEditingAttribute(item)
-                                } label: {
-                                    AttributeCardView(title: item.label)
+                                // Normal card + optional "children" button for choices
+                                HStack(spacing: 8) {
+                                    Button {
+                                        startEditingAttribute(item)
+                                    } label: {
+                                        AttributeCardView(title: item.label)
+                                    }
+                                    .buttonStyle(.plain)
+
+                                    if isChoiceType {
+                                        Button {
+                                            openChildrenEditor(for: item.id)
+                                        } label: {
+                                            Image(systemName: "arrow.turn.down.right")
+                                                .font(.system(size: 16, weight: .medium))
+                                        }
+                                    }
                                 }
+                                .padding(.horizontal, 24)
                             }
                         }
                     }
                 }
-                .padding(.horizontal, 24)
                 .padding(.vertical, 8)
             }
 
@@ -78,6 +94,19 @@ struct EditCategoryPage: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 24)
         }
+        // CHILDREN EDITOR SHEET
+        .sheet(isPresented: $showChildrenEditor, onDismiss: {
+            applyChildrenChanges()
+        }) {
+            if let name = currentChildrenChoiceName() {
+                EditChoiceChildrenPage(
+                    choiceName: name,
+                    subcategories: $tempChildren
+                )
+            } else {
+                Text("No choice selected")
+            }
+        }
     }
 
     // MARK: - Labels and derived items
@@ -91,6 +120,11 @@ struct EditCategoryPage: View {
         }
     }
 
+    private var isChoiceType: Bool {
+        if case .choice = localType { return true }
+        return false
+    }
+
     // A simple internal representation of an attribute for display
     private struct AttributeItem: Identifiable {
         let id: UUID
@@ -102,7 +136,6 @@ struct EditCategoryPage: View {
         switch localType {
         case .choice(let data):
             return data.choices.map { AttributeItem(id: $0.id, label: $0.name) }
-            
 
         case .numberInputs(let data):
             return data.inputs.map { AttributeItem(id: $0.id, label: $0.name) }
@@ -111,7 +144,6 @@ struct EditCategoryPage: View {
             return data.inputs.map { AttributeItem(id: $0.id, label: $0.name) }
 
         case .timeInput:
-            // No cards here, we will show a dedicated field for time below.
             return []
         }
     }
@@ -125,8 +157,7 @@ struct EditCategoryPage: View {
             let newChoice = Choice(name: "New choice", isOn: false, hasChildren: false)
             data.choices.append(newChoice)
             localType = .choice(data)
-            
-            // Enter rename mode immediately
+
             editingAttributeID = newChoice.id
             tempAttributeName = newChoice.name
 
@@ -134,8 +165,7 @@ struct EditCategoryPage: View {
             let newInput = NumberInput(name: "New number", inValue: nil)
             data.inputs.append(newInput)
             localType = .numberInputs(data)
-            
-            // Enter rename mode
+
             editingAttributeID = newInput.id
             tempAttributeName = newInput.name
 
@@ -143,22 +173,18 @@ struct EditCategoryPage: View {
             let newInput = TextInput(name: "New text", inValue: nil)
             data.inputs.append(newInput)
             localType = .textInputs(data)
-            
-            // Enter rename mode
+
             editingAttributeID = newInput.id
             tempAttributeName = newInput.name
 
         case .timeInput(var data):
-            // For time input, if there is no name yet, set one
             if data.name.isEmpty {
                 data.name = "Time"
-            } else {
-                // In this model there is only one time input, so we do nothing extra
             }
             localType = .timeInput(data)
         }
     }
-    
+
     private func startEditingAttribute(_ item: AttributeItem) {
         editingAttributeID = item.id
         tempAttributeName = item.label
@@ -186,7 +212,6 @@ struct EditCategoryPage: View {
             localType = .textInputs(data)
 
         case .timeInput:
-            // No list here, handled separately if you want
             break
         }
 
@@ -194,4 +219,36 @@ struct EditCategoryPage: View {
         tempAttributeName = ""
     }
 
+    // MARK: - Children editing
+
+    private func openChildrenEditor(for id: UUID) {
+        guard case .choice(let data) = localType,
+              let choice = data.choices.first(where: { $0.id == id }) else {
+            return
+        }
+        editingChildrenChoiceID = id
+        tempChildren = choice.subcategories
+        showChildrenEditor = true
+    }
+
+    private func currentChildrenChoiceName() -> String? {
+        guard let id = editingChildrenChoiceID,
+              case .choice(let data) = localType,
+              let choice = data.choices.first(where: { $0.id == id }) else {
+            return nil
+        }
+        return choice.name
+    }
+
+    private func applyChildrenChanges() {
+        guard let id = editingChildrenChoiceID,
+              case .choice(var data) = localType else {
+            return
+        }
+        if let idx = data.choices.firstIndex(where: { $0.id == id }) {
+            data.choices[idx].subcategories = tempChildren
+            data.choices[idx].hasChildren = !tempChildren.isEmpty
+            localType = .choice(data)
+        }
+    }
 }
