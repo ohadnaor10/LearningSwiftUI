@@ -2,11 +2,12 @@ import SwiftUI
 
 struct ReportActivityPage: View {
 
+    // We keep a local copy so the flow is stable (and we don’t depend on a Binding existing immediately).
     @State private var activity: Activity
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var userData: UserData
 
-    enum ReportStep {
+    enum ReportStep: Equatable {
         case chooseTime
         case chooseEarlierTime
         case category(index: Int)
@@ -14,6 +15,10 @@ struct ReportActivityPage: View {
     }
 
     @State private var step: ReportStep = .chooseTime
+
+    // Remember which time screen we came from, so “Back” from the first category returns correctly.
+    @State private var lastTimeStep: ReportStep = .chooseTime
+
     @State private var instance: ActivityInstance
 
     // MARK: - Init
@@ -32,39 +37,110 @@ struct ReportActivityPage: View {
     // MARK: - Body
 
     var body: some View {
-        VStack {
-            switch step {
+        VStack(spacing: 0) {
 
-            case .chooseTime:
-                ChooseTimePage(
-                    onNow: {
-                        instance.timestamp = Date()
-                        goToFirstCategory()
-                    },
-                    onEarlier: {
-                        step = .chooseEarlierTime
-                    }
-                )
-
-            case .chooseEarlierTime:
-                ChooseEarlierTimePage { chosen in
-                    instance.timestamp = chosen
-                    goToFirstCategory()
+            // Top bar inside the sheet
+            HStack {
+                Button {
+                    goBack()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18, weight: .semibold))
                 }
+                .opacity(canGoBack ? 1 : 0)
+                .disabled(!canGoBack)
 
-            case .category(let index):
-                CategoryReportRouter(
-                    category: $activity.categories[index],
-                    onNext: {
-                        goToNextCategory(current: index)
+                Spacer()
+
+                Text(activity.name)
+                    .font(.headline)
+
+                Spacer()
+
+                // keeps title centered
+                Color.clear.frame(width: 24, height: 24)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
+            .background(Color.gray.opacity(0.15))
+
+            // Flow content
+            VStack {
+                switch step {
+
+                case .chooseTime:
+                    ChooseTimePage(
+                        onNow: {
+                            instance.timestamp = Date()
+                            lastTimeStep = .chooseTime
+                            goToFirstCategory()
+                        },
+                        onEarlier: {
+                            step = .chooseEarlierTime
+                        }
+                    )
+
+                case .chooseEarlierTime:
+                    ChooseEarlierTimePage { chosen in
+                        instance.timestamp = chosen
+                        lastTimeStep = .chooseEarlierTime
+                        goToFirstCategory()
                     }
-                )
 
-            case .done:
-                ReportDonePage(onFinish: {
-                    userData.activityInstances.append(instance)
-                    dismiss()
-                })
+                case .category(let index):
+                    if activity.categories.indices.contains(index) {
+                        CategoryReportRouter(
+                            category: $activity.categories[index],
+                            onNext: { goToNextCategory(current: index) }
+                        )
+                    } else {
+                        // Safety fallback
+                        Color.clear.onAppear { step = .done }
+                    }
+
+                case .done:
+                    ReportDonePage(onFinish: {
+                        userData.activityInstances.append(instance)
+                        dismiss()
+                    })
+                }
+            }
+        }
+    }
+
+    // MARK: - Back logic
+
+    private var canGoBack: Bool {
+        switch step {
+        case .chooseTime:
+            return false
+        default:
+            return true
+        }
+    }
+
+    private func goBack() {
+        switch step {
+
+        case .chooseTime:
+            return
+
+        case .chooseEarlierTime:
+            step = .chooseTime
+
+        case .category(let index):
+            if index > 0 {
+                step = .category(index: index - 1)
+            } else {
+                // Back from first category goes to the last time screen used
+                step = lastTimeStep
+            }
+
+        case .done:
+            if activity.categories.isEmpty {
+                step = lastTimeStep
+            } else {
+                step = .category(index: max(activity.categories.count - 1, 0))
             }
         }
     }
@@ -81,6 +157,7 @@ struct ReportActivityPage: View {
 
     private func goToNextCategory(current index: Int) {
         saveCategoryResult(index)
+
         if index + 1 < activity.categories.count {
             step = .category(index: index + 1)
         } else {
@@ -91,6 +168,7 @@ struct ReportActivityPage: View {
     // MARK: - Store answers into instance
 
     private func saveCategoryResult(_ index: Int) {
+        guard activity.categories.indices.contains(index) else { return }
         let cat = activity.categories[index]
 
         switch cat.type {
