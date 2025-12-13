@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MonthGridView: View {
     let month: Month
+    @EnvironmentObject var userData: UserData
     
 
     var body: some View {
@@ -86,6 +87,26 @@ struct MonthGridView: View {
                                 let pastMonthLastDay = lastMonth.numberOfDays
                                 let pastMonthDay = pastMonthLastDay - (start - idx) + 1
                                 let nextMonthDay = idx - (start + days) + 1
+                                
+                                let displayMonth: Month =
+                                    (day >= 1 && day <= days) ? month :
+                                    (day < 1) ? lastMonth :
+                                               nextMonth
+
+                                let displayDay: Int =
+                                    (day >= 1 && day <= days) ? day :
+                                    (day < 1) ? pastMonthDay :
+                                               nextMonthDay
+
+                                let cellDate = displayMonth.date(forDay: displayDay)
+
+                                let instanceIDsForDay: [UUID] = {
+                                    guard let d = cellDate else { return [] }
+                                    let cal = Calendar(identifier: .gregorian)
+                                    return userData.activityInstances
+                                        .filter { cal.isDate($0.timestamp, inSameDayAs: d) }
+                                        .map { $0.id }
+                                }()
 
                                 VStack(spacing: 0) {
                                     // Top bar: day number pinned top-left
@@ -114,7 +135,12 @@ struct MonthGridView: View {
                                     // Content area: tasks go here later
                                     ZStack {
                                         Color.clear
-                                        // TODO: place task indicators here later
+
+                                        if !instanceIDsForDay.isEmpty {
+                                            Circle()
+                                                .frame(width: 6, height: 6)
+                                                .padding(.top, 6)
+                                        }
                                     }
                                     .frame(width: colW, height: mainRow - dayTopBar)
                                 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AppShell: View {
+    @State private var topBar: AnyView = AnyView(EmptyView())
+
     @State private var current = Month.current
     @State private var currentTab = 1
     

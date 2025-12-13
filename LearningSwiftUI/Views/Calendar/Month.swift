@@ -61,4 +61,17 @@ extension Month {
         let d = cal.date(from: DateComponents(year: year, month: month, day: 1))!
         return cal.range(of: .day, in: .month, for: d)!.count
     }
+    
+    /// Returns the start-of-day Date for a given day in this month (1...numberOfDays).
+    func date(forDay day: Int) -> Date? {
+        guard day >= 1 && day <= numberOfDays else { return nil }
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = .current
+
+        let comps = DateComponents(year: year, month: month, day: day)
+        guard let d = cal.date(from: comps) else { return nil }
+        return cal.startOfDay(for: d)
+    }
 }
+
+
