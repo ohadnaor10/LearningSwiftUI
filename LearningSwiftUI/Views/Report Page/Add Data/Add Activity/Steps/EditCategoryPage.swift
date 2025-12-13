@@ -6,7 +6,6 @@ struct EditCategoryPage: View {
     var onDone: () -> Void
 
     // Local editable copy of the type
-    @State private var localType: CategoryType
     @State private var editingAttributeID: UUID? = nil
     @State private var tempAttributeName: String = ""
 
@@ -14,12 +13,6 @@ struct EditCategoryPage: View {
     @State private var showChildrenEditor = false
     @State private var editingChildrenChoiceID: UUID? = nil
     @State private var tempChildren: [Category] = []
-
-    init(category: Binding<Category>, onDone: @escaping () -> Void) {
-        self._category = category
-        self.onDone = onDone
-        _localType = State(initialValue: category.wrappedValue.type)
-    }
 
     var body: some View {
         VStack(spacing: 16) {
@@ -88,7 +81,6 @@ struct EditCategoryPage: View {
 
             // COMPLETE CATEGORY BUTTON
             CompleteCategoryButton {
-                category.type = localType
                 onDone()
             }
             .padding(.horizontal, 24)
@@ -112,7 +104,7 @@ struct EditCategoryPage: View {
     // MARK: - Labels and derived items
 
     private var typeLabel: String {
-        switch localType {
+        switch category.type {
         case .choice:        return "Choice"
         case .numberInputs:  return "Number"
         case .textInputs:    return "Text"
@@ -121,7 +113,7 @@ struct EditCategoryPage: View {
     }
 
     private var isChoiceType: Bool {
-        if case .choice = localType { return true }
+        if case .choice = category.type { return true }
         return false
     }
 
@@ -133,7 +125,7 @@ struct EditCategoryPage: View {
 
     // Flatten CategoryType into a list of labels to show as cards
     private var attributeItems: [AttributeItem] {
-        switch localType {
+        switch category.type {
         case .choice(let data):
             return data.choices.map { AttributeItem(id: $0.id, label: $0.name) }
 
@@ -151,12 +143,12 @@ struct EditCategoryPage: View {
     // MARK: - Mutations
 
     private func addAttribute() {
-        switch localType {
+        switch category.type {
 
         case .choice(var data):
             let newChoice = Choice(name: "New choice", isOn: false, hasChildren: false)
             data.choices.append(newChoice)
-            localType = .choice(data)
+            category.type = .choice(data)
 
             editingAttributeID = newChoice.id
             tempAttributeName = newChoice.name
@@ -164,7 +156,7 @@ struct EditCategoryPage: View {
         case .numberInputs(var data):
             let newInput = NumberInput(name: "New number", inValue: nil)
             data.inputs.append(newInput)
-            localType = .numberInputs(data)
+            category.type = .numberInputs(data)
 
             editingAttributeID = newInput.id
             tempAttributeName = newInput.name
@@ -172,7 +164,7 @@ struct EditCategoryPage: View {
         case .textInputs(var data):
             let newInput = TextInput(name: "New text", inValue: nil)
             data.inputs.append(newInput)
-            localType = .textInputs(data)
+            category.type = .textInputs(data)
 
             editingAttributeID = newInput.id
             tempAttributeName = newInput.name
@@ -181,7 +173,7 @@ struct EditCategoryPage: View {
             if data.name.isEmpty {
                 data.name = "Time"
             }
-            localType = .timeInput(data)
+            category.type = .timeInput(data)
         }
     }
 
@@ -191,25 +183,25 @@ struct EditCategoryPage: View {
     }
 
     private func commitAttributeRename(id: UUID, newName: String) {
-        switch localType {
+        switch category.type {
 
         case .choice(var data):
             if let i = data.choices.firstIndex(where: { $0.id == id }) {
                 data.choices[i].name = newName
             }
-            localType = .choice(data)
+            category.type = .choice(data)
 
         case .numberInputs(var data):
             if let i = data.inputs.firstIndex(where: { $0.id == id }) {
                 data.inputs[i].name = newName
             }
-            localType = .numberInputs(data)
+            category.type = .numberInputs(data)
 
         case .textInputs(var data):
             if let i = data.inputs.firstIndex(where: { $0.id == id }) {
                 data.inputs[i].name = newName
             }
-            localType = .textInputs(data)
+            category.type = .textInputs(data)
 
         case .timeInput:
             break
@@ -222,7 +214,7 @@ struct EditCategoryPage: View {
     // MARK: - Children editing
 
     private func openChildrenEditor(for id: UUID) {
-        guard case .choice(let data) = localType,
+        guard case .choice(let data) = category.type,
               let choice = data.choices.first(where: { $0.id == id }) else {
             return
         }
@@ -233,7 +225,7 @@ struct EditCategoryPage: View {
 
     private func currentChildrenChoiceName() -> String? {
         guard let id = editingChildrenChoiceID,
-              case .choice(let data) = localType,
+              case .choice(let data) = category.type,
               let choice = data.choices.first(where: { $0.id == id }) else {
             return nil
         }
@@ -242,13 +234,13 @@ struct EditCategoryPage: View {
 
     private func applyChildrenChanges() {
         guard let id = editingChildrenChoiceID,
-              case .choice(var data) = localType else {
+              case .choice(var data) = category.type else {
             return
         }
         if let idx = data.choices.firstIndex(where: { $0.id == id }) {
             data.choices[idx].subcategories = tempChildren
             data.choices[idx].hasChildren = !tempChildren.isEmpty
-            localType = .choice(data)
+            category.type = .choice(data)
         }
     }
 }
