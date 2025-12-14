@@ -13,58 +13,60 @@ struct AppShell: View {
     @State private var reportBackTrigger = 0
 
     var body: some View {
-        VStack(spacing: 0) {
-
-            // -------------------------------
-            // TOP BAR
-            // -------------------------------
-            switch topBarConfig {
-            case .calendar(let month, let isCurrent):
-                TopBar(month: month, isCurrentMonth: isCurrent)
-
-            case .report(let title, let showAdd, let showBack):
-                TopBarGenericReportPage(
-                    title: title,
-                    showAddButton: showAdd,
-                    onAddTapped: { showAddMenu = true },
-                    showBackButton: showBack,
-                    onBackTapped: { reportBackTrigger &+= 1 }
-                )
-
-            case .empty:
-                TopBarGeneric(title: "")
-            }
-
-            // -------------------------------
-            // MAIN CONTENT
-            // -------------------------------
-            ZStack {
-                switch currentTab {
-                case 0:
-                    CalendarView(currentMonth: $current)
-
-                case 1:
-                    ReportPage(
-                        showAddMenu: $showAddMenu,
-                        backTrigger: $reportBackTrigger
+        NavigationStack {
+            VStack(spacing: 0) {
+                
+                // -------------------------------
+                // TOP BAR
+                // -------------------------------
+                switch topBarConfig {
+                case .calendar(let month, let isCurrent):
+                    TopBar(month: month, isCurrentMonth: isCurrent)
+                    
+                case .report(let title, let showAdd, let showBack):
+                    TopBarGenericReportPage(
+                        title: title,
+                        showAddButton: showAdd,
+                        onAddTapped: { showAddMenu = true },
+                        showBackButton: showBack,
+                        onBackTapped: { reportBackTrigger &+= 1 }
                     )
-
-                default:
-                    ReportPage(
-                        showAddMenu: $showAddMenu,
-                        backTrigger: $reportBackTrigger
-                    )
+                    
+                case .empty:
+                    TopBarGeneric(title: "")
                 }
+                
+                // -------------------------------
+                // MAIN CONTENT
+                // -------------------------------
+                ZStack {
+                    switch currentTab {
+                    case 0:
+                        CalendarView(currentMonth: $current)
+                        
+                    case 1:
+                        ReportPage(
+                            showAddMenu: $showAddMenu,
+                            backTrigger: $reportBackTrigger
+                        )
+                        
+                    default:
+                        ReportPage(
+                            showAddMenu: $showAddMenu,
+                            backTrigger: $reportBackTrigger
+                        )
+                    }
+                }
+                .onPreferenceChange(TopBarPreferenceKey.self) { newConfig in
+                    topBarConfig = newConfig
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                // -------------------------------
+                // BOTTOM BAR
+                // -------------------------------
+                BottomBar(currentPage: $currentTab)
             }
-            .onPreferenceChange(TopBarPreferenceKey.self) { newConfig in
-                topBarConfig = newConfig
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-            // -------------------------------
-            // BOTTOM BAR
-            // -------------------------------
-            BottomBar(currentPage: $currentTab)
         }
     }
 }
