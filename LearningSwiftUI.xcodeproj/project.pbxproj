@@ -22,12 +22,34 @@
 		B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8A2ECD097300F1D118 /* CalendarView.swift */; };
 		B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8B2ECD097300F1D118 /* Month.swift */; };
 		B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */; };
+		B45496CE2EEB835600EEAB8A /* EditChoiceChildrenPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */; };
+		B45496D02EEDBD0600EEAB8A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CF2EEDBD0600EEAB8A /* SampleData.swift */; };
+		B45496D22EEF2FC700EEAB8A /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496D12EEF2FC700EEAB8A /* DayView.swift */; };
+		B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783342ED6453B00B289A7 /* AddActivityPage.swift */; };
+		B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783382ED650E100B289A7 /* AddGroupPage.swift */; };
+		B497833E2ED6536800B289A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833D2ED6536800B289A7 /* UserData.swift */; };
+		B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */; };
+		B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783442EDB169500B289A7 /* AddCategoryPage.swift */; };
+		B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783462EDB230D00B289A7 /* CategoryView.swift */; };
+		B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783482EDB25F400B289A7 /* AddActivityButtons.swift */; };
+		B497834B2EDB2EB800B289A7 /* PickCategoryTypePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497834A2EDB2EB800B289A7 /* PickCategoryTypePage.swift */; };
+		B49783502EDCE3C900B289A7 /* EditCategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497834F2EDCE3C900B289A7 /* EditCategoryPage.swift */; };
+		B49783522EDCED7C00B289A7 /* AttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783512EDCED7C00B289A7 /* AttributeCardView.swift */; };
 		B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B812ED1EB2100393766 /* Activity.swift */; };
 		B4C13B842ED1EB3C00393766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B832ED1EB3700393766 /* Category.swift */; };
 		B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B852ED1EB3F00393766 /* CategoryType.swift */; };
-		B4C13B8E2ED2071600393766 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8D2ED2071200393766 /* Group.swift */; };
+		B4C13B8E2ED2071600393766 /* ActivityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8D2ED2071200393766 /* ActivityGroup.swift */; };
 		B4C13B902ED2077300393766 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B8F2ED2077300393766 /* GroupCard.swift */; };
 		B4C13B922ED207B900393766 /* ContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13B912ED207B900393766 /* ContentPage.swift */; };
+		B4C89C462EE44A4D0004A902 /* ReportActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */; };
+		B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */; };
+		B4C89C4C2EE468FA0004A902 /* ChooseTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */; };
+		B4C89C4E2EE469960004A902 /* ChooseEarlierTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */; };
+		B4C89C502EE46A3E0004A902 /* CategoryReportRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */; };
+		B4C89C532EE46AC30004A902 /* ChoiceCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */; };
+		B4C89C552EE46C770004A902 /* NumberCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */; };
+		B4C89C572EE46CAE0004A902 /* TextCategoryReportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */; };
+		B4C89C592EE46E720004A902 /* ReportDonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C89C582EE46E720004A902 /* ReportDonePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,15 +69,34 @@
 		B41F2B8A2ECD097300F1D118 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B41F2B8B2ECD097300F1D118 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
-		B41F2B912ECD097300F1D118 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
-		B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
-		B41F2BA12ECD176000F1D118 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
+		B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoiceChildrenPage.swift; sourceTree = "<group>"; };
+		B45496CF2EEDBD0600EEAB8A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		B45496D12EEF2FC700EEAB8A /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		B49783342ED6453B00B289A7 /* AddActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityPage.swift; sourceTree = "<group>"; };
+		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
+		B497833D2ED6536800B289A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityNameStep.swift; sourceTree = "<group>"; };
+		B49783442EDB169500B289A7 /* AddCategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryPage.swift; sourceTree = "<group>"; };
+		B49783462EDB230D00B289A7 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		B49783482EDB25F400B289A7 /* AddActivityButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityButtons.swift; sourceTree = "<group>"; };
+		B497834A2EDB2EB800B289A7 /* PickCategoryTypePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickCategoryTypePage.swift; sourceTree = "<group>"; };
+		B497834F2EDCE3C900B289A7 /* EditCategoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryPage.swift; sourceTree = "<group>"; };
+		B49783512EDCED7C00B289A7 /* AttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCardView.swift; sourceTree = "<group>"; };
 		B4C13B812ED1EB2100393766 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B4C13B832ED1EB3700393766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B4C13B852ED1EB3F00393766 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
-		B4C13B8D2ED2071200393766 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B4C13B8D2ED2071200393766 /* ActivityGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGroup.swift; sourceTree = "<group>"; };
 		B4C13B8F2ED2077300393766 /* GroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCard.swift; sourceTree = "<group>"; };
 		B4C13B912ED207B900393766 /* ContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPage.swift; sourceTree = "<group>"; };
+		B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportActivityPage.swift; sourceTree = "<group>"; };
+		B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceStore.swift; sourceTree = "<group>"; };
+		B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTimePage.swift; sourceTree = "<group>"; };
+		B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEarlierTimePage.swift; sourceTree = "<group>"; };
+		B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReportRouter.swift; sourceTree = "<group>"; };
+		B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCategoryReportPage.swift; sourceTree = "<group>"; };
+		B4C89C582EE46E720004A902 /* ReportDonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDonePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +144,10 @@
 		B41F2B692ECD096800F1D118 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
-				B4C13B832ED1EB3700393766 /* Category.swift */,
 				B4C13B812ED1EB2100393766 /* Activity.swift */,
+				B4C13B832ED1EB3700393766 /* Category.swift */,
+				B4C13B852ED1EB3F00393766 /* CategoryType.swift */,
+				B4C89C482EE462330004A902 /* ActivityInstanceStore.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -125,22 +167,22 @@
 		B41F2B712ECD096800F1D118 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13B8C2ED2070800393766 /* Groups */,
 				B41F2B692ECD096800F1D118 /* Activities */,
+				B4C13B8C2ED2070800393766 /* Groups */,
 				B41F2B6F2ECD096800F1D118 /* Day */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B41F2B842ECD097300F1D118 /* ReportPage */ = {
+		B41F2B842ECD097300F1D118 /* Report Page */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
 				B41F2B822ECD097300F1D118 /* ReportPage.swift */,
-				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
-				B4C13B912ED207B900393766 /* ContentPage.swift */,
+				B4C89C472EE45E5A0004A902 /* Report Page Contents */,
+				B4C89C442EE4480D0004A902 /* Report Activity Protocol */,
+				B49783332ED6450400B289A7 /* Add Data */,
 			);
-			path = ReportPage;
+			path = "Report Page";
 			sourceTree = "<group>";
 		};
 		B41F2B8D2ECD097300F1D118 /* Calendar */ = {
@@ -149,6 +191,7 @@
 				B41F2B8A2ECD097300F1D118 /* CalendarView.swift */,
 				B41F2B8B2ECD097300F1D118 /* Month.swift */,
 				B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */,
+				B45496D12EEF2FC700EEAB8A /* DayView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -156,9 +199,8 @@
 		B41F2B922ECD097300F1D118 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2BA02ECD174500F1D118 /* ActivityInstanceStore.swift */,
-				B41F2BA12ECD176000F1D118 /* ActivityStore.swift */,
-				B41F2B912ECD097300F1D118 /* CalendarStore.swift */,
+				B497833D2ED6536800B289A7 /* UserData.swift */,
+				B45496CF2EEDBD0600EEAB8A /* SampleData.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -166,18 +208,100 @@
 		B41F2B932ECD09B200F1D118 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B41F2B842ECD097300F1D118 /* ReportPage */,
+				B41F2B842ECD097300F1D118 /* Report Page */,
 				B41F2B8D2ECD097300F1D118 /* Calendar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B49783332ED6450400B289A7 /* Add Data */ = {
+			isa = PBXGroup;
+			children = (
+				B497833F2ED8A5BE00B289A7 /* Add Activity */,
+				B49783532EE360C100B289A7 /* Add Group */,
+			);
+			path = "Add Data";
+			sourceTree = "<group>";
+		};
+		B497833F2ED8A5BE00B289A7 /* Add Activity */ = {
+			isa = PBXGroup;
+			children = (
+				B49783342ED6453B00B289A7 /* AddActivityPage.swift */,
+				B497834C2EDB2FAC00B289A7 /* Steps */,
+			);
+			path = "Add Activity";
+			sourceTree = "<group>";
+		};
+		B497834C2EDB2FAC00B289A7 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				B49783442EDB169500B289A7 /* AddCategoryPage.swift */,
+				B49783402ED8A5E000B289A7 /* AddActivityNameStep.swift */,
+				B49783462EDB230D00B289A7 /* CategoryView.swift */,
+				B49783482EDB25F400B289A7 /* AddActivityButtons.swift */,
+				B497834A2EDB2EB800B289A7 /* PickCategoryTypePage.swift */,
+				B497834F2EDCE3C900B289A7 /* EditCategoryPage.swift */,
+				B49783512EDCED7C00B289A7 /* AttributeCardView.swift */,
+				B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		B49783532EE360C100B289A7 /* Add Group */ = {
+			isa = PBXGroup;
+			children = (
+				B49783382ED650E100B289A7 /* AddGroupPage.swift */,
+			);
+			path = "Add Group";
+			sourceTree = "<group>";
+		};
 		B4C13B8C2ED2070800393766 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13B8D2ED2071200393766 /* Group.swift */,
+				B4C13B8D2ED2071200393766 /* ActivityGroup.swift */,
 			);
 			path = Groups;
+			sourceTree = "<group>";
+		};
+		B4C89C442EE4480D0004A902 /* Report Activity Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C452EE44A4D0004A902 /* ReportActivityPage.swift */,
+				B4C89C4A2EE467010004A902 /* Steps */,
+			);
+			path = "Report Activity Protocol";
+			sourceTree = "<group>";
+		};
+		B4C89C472EE45E5A0004A902 /* Report Page Contents */ = {
+			isa = PBXGroup;
+			children = (
+				B41F2B7F2ECD097300F1D118 /* ActivityCard.swift */,
+				B4C13B8F2ED2077300393766 /* GroupCard.swift */,
+				B4C13B912ED207B900393766 /* ContentPage.swift */,
+			);
+			path = "Report Page Contents";
+			sourceTree = "<group>";
+		};
+		B4C89C4A2EE467010004A902 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C4B2EE468FA0004A902 /* ChooseTimePage.swift */,
+				B4C89C4D2EE469960004A902 /* ChooseEarlierTimePage.swift */,
+				B4C89C4F2EE46A3E0004A902 /* CategoryReportRouter.swift */,
+				B4C89C582EE46E720004A902 /* ReportDonePage.swift */,
+				B4C89C512EE46A8F0004A902 /* Category Report Types */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		B4C89C512EE46A8F0004A902 /* Category Report Types */ = {
+			isa = PBXGroup;
+			children = (
+				B4C89C522EE46AC30004A902 /* ChoiceCategoryReportPage.swift */,
+				B4C89C542EE46C770004A902 /* NumberCategoryReportPage.swift */,
+				B4C89C562EE46CAE0004A902 /* TextCategoryReportPage.swift */,
+			);
+			path = "Category Report Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,12 +376,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C89C572EE46CAE0004A902 /* TextCategoryReportPage.swift in Sources */,
 				B4C13B922ED207B900393766 /* ContentPage.swift in Sources */,
-				B4C13B8E2ED2071600393766 /* Group.swift in Sources */,
+				B4C13B8E2ED2071600393766 /* ActivityGroup.swift in Sources */,
 				B41F2B002EC604F500F1D118 /* AppShell.swift in Sources */,
+				B497833E2ED6536800B289A7 /* UserData.swift in Sources */,
 				B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */,
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
+				B45496D22EEF2FC700EEAB8A /* DayView.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
+				B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */,
+				B4C89C532EE46AC30004A902 /* ChoiceCategoryReportPage.swift in Sources */,
+				B4C89C502EE46A3E0004A902 /* CategoryReportRouter.swift in Sources */,
+				B4C89C492EE462330004A902 /* ActivityInstanceStore.swift in Sources */,
 				B41F2B792ECD096800F1D118 /* DayData.swift in Sources */,
 				B41F2B7A2ECD096800F1D118 /* DayKey.swift in Sources */,
 				B41F2B8E2ECD097300F1D118 /* CalendarView.swift in Sources */,
@@ -265,13 +396,28 @@
 				B4C13B822ED1EB2A00393766 /* Activity.swift in Sources */,
 				B41F2B8F2ECD097300F1D118 /* Month.swift in Sources */,
 				B41F2B902ECD097300F1D118 /* MonthGridView.swift in Sources */,
+				B497834B2EDB2EB800B289A7 /* PickCategoryTypePage.swift in Sources */,
+				B4C89C4E2EE469960004A902 /* ChooseEarlierTimePage.swift in Sources */,
 				B41F2B7B2ECD096800F1D118 /* Event.swift in Sources */,
 				B41F2B852ECD097300F1D118 /* ActivityCard.swift in Sources */,
 				B4C13B862ED1EB5000393766 /* CategoryType.swift in Sources */,
 				B41F2B882ECD097300F1D118 /* ReportPage.swift in Sources */,
 				B41F2B7C2ECD096800F1D118 /* Habit.swift in Sources */,
+				B45496CE2EEB835600EEAB8A /* EditChoiceChildrenPage.swift in Sources */,
+				B49783472EDB230D00B289A7 /* CategoryView.swift in Sources */,
+				B49783502EDCE3C900B289A7 /* EditCategoryPage.swift in Sources */,
+				B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */,
+				B4C89C462EE44A4D0004A902 /* ReportActivityPage.swift in Sources */,
 				B41F2B7D2ECD096800F1D118 /* Task.swift in Sources */,
+				B49783522EDCED7C00B289A7 /* AttributeCardView.swift in Sources */,
+				B49783492EDB25F400B289A7 /* AddActivityButtons.swift in Sources */,
+				B4C89C4C2EE468FA0004A902 /* ChooseTimePage.swift in Sources */,
 				B41F2B052EC604F500F1D118 /* TopBar.swift in Sources */,
+				B49783412ED8A5E000B289A7 /* AddActivityNameStep.swift in Sources */,
+				B49783452EDB169500B289A7 /* AddCategoryPage.swift in Sources */,
+				B4C89C592EE46E720004A902 /* ReportDonePage.swift in Sources */,
+				B45496D02EEDBD0600EEAB8A /* SampleData.swift in Sources */,
+				B4C89C552EE46C770004A902 /* NumberCategoryReportPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

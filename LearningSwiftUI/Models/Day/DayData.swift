@@ -8,6 +8,7 @@
 import Foundation
 
 struct DayData: Codable {
+    var activities: [Activity] = []
     var events: [Event]
     var tasks: [Task]
     var completedHabits: Set<UUID>   // store only habit IDs

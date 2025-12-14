@@ -10,7 +10,7 @@ import Foundation
 /// Represents the *kind* of a Category.
 /// Each case holds its own data structure
 /// defining what fields this category contains.
-enum CategoryType: Hashable {
+enum CategoryType: Hashable, Codable {
     
     case choice(ChoiceData)
     case numberInputs(NumberInputsData)
@@ -25,26 +25,27 @@ enum CategoryType: Hashable {
 
 // MARK: - Choice
 
-struct ChoiceData: Hashable {
+struct ChoiceData: Hashable, Codable  {
     var choices: [Choice]
 }
 
 /// One option inside a choice category.
 /// Each choice can branch to multiple subcategories.
-struct Choice: Identifiable, Hashable {
+struct Choice: Identifiable, Hashable, Codable  {
     let id: UUID = UUID()
     var name: String
     var isOn: Bool
-    var subcategories: [Category]   // children nodes
+    var hasChildren: Bool
+    var subcategories: [Category] = []  // children nodes
 }
 
 // MARK: - Number Inputs
 
-struct NumberInputsData: Hashable {
+struct NumberInputsData: Hashable, Codable {
     var inputs: [NumberInput]
 }
 
-struct NumberInput: Identifiable, Hashable {
+struct NumberInput: Identifiable, Hashable, Codable {
     let id: UUID = UUID()
     var name: String
     var inValue: Int?
@@ -52,11 +53,11 @@ struct NumberInput: Identifiable, Hashable {
 
 // MARK: - Text Inputs
 
-struct TextInputsData: Hashable {
+struct TextInputsData: Hashable, Codable  {
     var inputs: [TextInput]
 }
 
-struct TextInput: Identifiable, Hashable {
+struct TextInput: Identifiable, Hashable, Codable  {
     let id: UUID = UUID()
     var name: String
     var inValue: String?
@@ -64,7 +65,7 @@ struct TextInput: Identifiable, Hashable {
 
 // MARK: - Time Input
 
-struct TimeInputData: Hashable {
+struct TimeInputData: Hashable, Codable  {
     var name: String
     var inValue: Date?
 }

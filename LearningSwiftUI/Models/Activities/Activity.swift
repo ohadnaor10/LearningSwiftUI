@@ -11,14 +11,14 @@ import Foundation
 /// It only contains:
 /// 1. A name
 /// 2. A pointer to the starting category of its reporting tree.
-struct Activity: Identifiable, Hashable {
+struct Activity: Identifiable, Hashable, Codable {
     let id: UUID
     var name: String
-    var startingCategory: Category
+    var categories: [Category]
 
-    init(id: UUID = UUID(), name: String, startingCategory: Category) {
+    init(id: UUID = UUID(), name: String, categories: [Category]) {
         self.id = id
         self.name = name
-        self.startingCategory = startingCategory
+        self.categories = categories
     }
 }

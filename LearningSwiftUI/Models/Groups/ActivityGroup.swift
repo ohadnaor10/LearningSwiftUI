@@ -11,7 +11,7 @@ import Foundation
 /// - A name
 /// - Subgroups (nested groups)
 /// - Activities (the activities that belong to this group)
-struct ActivityGroup: Identifiable, Hashable {
+struct ActivityGroup: Identifiable, Hashable, Codable {
     let id: UUID
     var name: String
     var subgroups: [ActivityGroup]

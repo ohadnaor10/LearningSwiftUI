@@ -1,9 +1,3 @@
-//
-//  TopBar.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 13/11/2025.
-//
 
 import SwiftUI
 
@@ -39,29 +33,15 @@ struct TopBarGeneric: View {
 
 import SwiftUI
 
-struct TopBarGenericReportPage: View {
-    var title: String
-    var showAddButton: Bool = false
-    var onAddTapped: () -> Void = {}
+enum TopBarConfig: Equatable {
+    case calendar(month: Month, isCurrent: Bool)
+    case report(title: String, showAdd: Bool, showBack: Bool)
+    case empty
+}
 
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.headline)
-                .padding(.leading, 12)
-
-            Spacer()
-
-            if showAddButton {
-                Button(action: onAddTapped) {
-                    Image(systemName: "plus")
-                        .font(.system(size: 20, weight: .bold))
-                }
-                .padding(.trailing, 12)
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 10)
-        .background(Color.gray.opacity(0.15))
+struct TopBarPreferenceKey: PreferenceKey {
+    static var defaultValue: TopBarConfig = .empty
+    static func reduce(value: inout TopBarConfig, nextValue: () -> TopBarConfig) {
+        value = nextValue()
     }
 }

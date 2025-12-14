@@ -1,15 +1,8 @@
-//
-//  ContentPage.swift
-//  LearningSwiftUI
-//
-//  Created by Ohad Naor on 22/11/2025.
-//
-
 import SwiftUI
 
 struct ContentPage: View {
 
-    let group: ActivityGroup
+    @Binding var group: ActivityGroup
     let onSelectActivity: (Activity) -> Void
     let onSelectGroup: (ActivityGroup) -> Void
 
@@ -21,9 +14,10 @@ struct ContentPage: View {
                 .fontWeight(.semibold)
                 .padding(.horizontal)
 
+            // ACTIVITIES ROW
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(group.activities) { activity in
+                    ForEach(Array(group.activities.enumerated()), id: \.element.id) { _, activity in
                         ActivityCard(
                             activity: activity,
                             onTap: { onSelectActivity(activity) }
@@ -40,6 +34,7 @@ struct ContentPage: View {
                 .padding(.horizontal)
             }
 
+            // SUBGROUPS LIST
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 16) {
                     ForEach(group.subgroups) { subgroup in
@@ -62,30 +57,4 @@ struct ContentPage: View {
             Spacer()
         }
     }
-}
-
-#Preview {
-
-    let cat = Category(
-        name: "Start",
-        type: .textInputs(TextInputsData(inputs: []))
-    )
-
-    let a1 = Activity(name: "Water", startingCategory: cat)
-    let a2 = Activity(name: "Workout", startingCategory: cat)
-
-    let g1 = ActivityGroup(name: "Health", subgroups: [], activities: [a1])
-    let g2 = ActivityGroup(name: "Work", subgroups: [], activities: [a2])
-
-    let root = ActivityGroup(
-        name: "Root",
-        subgroups: [g1, g2],
-        activities: [a1, a2]
-    )
-
-    return ContentPage(
-        group: root,
-        onSelectActivity: { _ in },
-        onSelectGroup: { _ in }
-    )
 }
