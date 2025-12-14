@@ -10,6 +10,8 @@ import SwiftUI
 struct MonthGridView: View {
     let month: Month
 
+    @EnvironmentObject var userData: UserData
+
     var body: some View {
         GeometryReader { geo in
 
@@ -23,11 +25,11 @@ struct MonthGridView: View {
             let firstRow = r * mainRow
             let colW = w / 7
 
-            let start = month.firstWeekdayIndexSunday0   // 0–6
+            let start = month.firstWeekdayIndexSunday0
             let days = month.numberOfDays
             let weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
 
-            // "today" info
+            // "today"
             let now = Date()
             let cal = Calendar(identifier: .gregorian)
             let nowComps = cal.dateComponents([.year, .month, .day], from: now)
@@ -45,7 +47,6 @@ struct MonthGridView: View {
                         path.move(to: CGPoint(x: x, y: firstRow / 2))
                         path.addLine(to: CGPoint(x: x, y: size.height))
 
-                        // edge verticals
                         path.move(to: CGPoint(x: 0.5, y: firstRow / 2))
                         path.addLine(to: CGPoint(x: 0.5, y: size.height))
 
@@ -64,7 +65,6 @@ struct MonthGridView: View {
                     ctx.stroke(path, with: .color(.black), lineWidth: 1)
                 }
 
-                // Weekday headers and days
                 VStack(spacing: 0) {
 
                     // Header
@@ -77,7 +77,7 @@ struct MonthGridView: View {
                         }
                     }
 
-                    // 6 rows of days
+                    // 6 rows
                     ForEach(0..<6, id: \.self) { row in
                         HStack(spacing: 0) {
                             ForEach(0..<7, id: \.self) { col in
@@ -103,6 +103,17 @@ struct MonthGridView: View {
                                     }
                                 }()
 
+                                // IMPORTANT: compute before using it in the view
+                                let instanceIDsForDay: [UUID] = {
+                                    guard let d = cellDate else { return [] }
+                                    let cal = Calendar(identifier: .gregorian)
+                                    return userData.activityInstances
+                                        .filter { cal.isDate($0.timestamp, inSameDayAs: d) }
+                                        .map { $0.id }
+                                }()
+                                
+                                let instanceCountForDay = instanceIDsForDay.count
+
                                 Group {
                                     if let cellDate {
                                         NavigationLink {
@@ -117,7 +128,10 @@ struct MonthGridView: View {
                                                 today: today,
                                                 colW: colW,
                                                 mainRow: mainRow,
-                                                dayTopBar: dayTopBar
+                                                dayTopBar: dayTopBar,
+                                                hasInstances: !instanceIDsForDay.isEmpty,
+                                                instanceCount: instanceCountForDay,
+                                                instanceIDs: instanceIDsForDay
                                             )
                                         }
                                         .buttonStyle(.plain)
@@ -131,7 +145,10 @@ struct MonthGridView: View {
                                             today: today,
                                             colW: colW,
                                             mainRow: mainRow,
-                                            dayTopBar: dayTopBar
+                                            dayTopBar: dayTopBar,
+                                            hasInstances: !instanceIDsForDay.isEmpty,
+                                            instanceCount: instanceCountForDay,
+                                            instanceIDs: instanceIDsForDay
                                         )
                                     }
                                 }
@@ -155,11 +172,15 @@ struct MonthGridView: View {
         today: Int,
         colW: CGFloat,
         mainRow: CGFloat,
-        dayTopBar: CGFloat
+        dayTopBar: CGFloat,
+        hasInstances: Bool,
+        instanceCount: Int,
+        instanceIDs: [UUID]
+        
     ) -> some View {
 
         VStack(spacing: 0) {
-            // Top bar: day number pinned top-left
+            // Top bar: day number
             ZStack(alignment: .top) {
                 Color.clear
 
@@ -182,14 +203,22 @@ struct MonthGridView: View {
             }
             .frame(width: colW, height: dayTopBar)
 
-            // Content area: activity indicators later
+            // Content area (dot marker)
             ZStack {
                 Color.clear
-                // TODO: place indicators here later
+
+                if instanceCount > 0 {
+                    Text("\(instanceCount)")
+                        .font(.caption2)
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background(Circle().fill(Color.blue))
+                        .padding(.top, 4)
+                }
             }
             .frame(width: colW, height: mainRow - dayTopBar)
         }
         .frame(width: colW, height: mainRow)
-        .contentShape(Rectangle()) // makes whole cell tappable
+        .contentShape(Rectangle())
     }
 }
