@@ -25,6 +25,7 @@
 		B45496CE2EEB835600EEAB8A /* EditChoiceChildrenPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */; };
 		B45496D02EEDBD0600EEAB8A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496CF2EEDBD0600EEAB8A /* SampleData.swift */; };
 		B45496D22EEF2FC700EEAB8A /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496D12EEF2FC700EEAB8A /* DayView.swift */; };
+		B45496D62EF05A0100EEAB8A /* ActivityInstanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45496D52EF05A0100EEAB8A /* ActivityInstanceDetailView.swift */; };
 		B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783342ED6453B00B289A7 /* AddActivityPage.swift */; };
 		B49783392ED650E100B289A7 /* AddGroupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49783382ED650E100B289A7 /* AddGroupPage.swift */; };
 		B497833E2ED6536800B289A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497833D2ED6536800B289A7 /* UserData.swift */; };
@@ -72,6 +73,7 @@
 		B45496CD2EEB835600EEAB8A /* EditChoiceChildrenPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoiceChildrenPage.swift; sourceTree = "<group>"; };
 		B45496CF2EEDBD0600EEAB8A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B45496D12EEF2FC700EEAB8A /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		B45496D52EF05A0100EEAB8A /* ActivityInstanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInstanceDetailView.swift; sourceTree = "<group>"; };
 		B49783342ED6453B00B289A7 /* AddActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityPage.swift; sourceTree = "<group>"; };
 		B49783382ED650E100B289A7 /* AddGroupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPage.swift; sourceTree = "<group>"; };
 		B497833D2ED6536800B289A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				B41F2B8B2ECD097300F1D118 /* Month.swift */,
 				B41F2B8C2ECD097300F1D118 /* MonthGridView.swift */,
 				B45496D12EEF2FC700EEAB8A /* DayView.swift */,
+				B45496D52EF05A0100EEAB8A /* ActivityInstanceDetailView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				B41F2B012EC604F500F1D118 /* BottomBar.swift in Sources */,
 				B4C13B842ED1EB3C00393766 /* Category.swift in Sources */,
 				B45496D22EEF2FC700EEAB8A /* DayView.swift in Sources */,
+				B45496D62EF05A0100EEAB8A /* ActivityInstanceDetailView.swift in Sources */,
 				B41F2B032EC604F500F1D118 /* LearningSwiftUIApp.swift in Sources */,
 				B49783352ED6453B00B289A7 /* AddActivityPage.swift in Sources */,
 				B4C89C532EE46AC30004A902 /* ChoiceCategoryReportPage.swift in Sources */,
